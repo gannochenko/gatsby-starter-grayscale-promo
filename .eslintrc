@@ -1,0 +1,29 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "eslint:recommended",
+    "airbnb-base",
+    "prettier",
+    "prettier/react",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:react/recommended"
+  ],
+  "plugins": ["prettier", "react", "import", "jsx-a11y", "react-hooks"],
+  "rules": {
+    "prettier/prettier": "warn",
+    "import/prefer-default-export": "off",
+    "no-param-reassign": "off",
+    "class-methods-use-this": "off",
+    "no-use-before-define": ["error", { "functions": false }],
+    "no-underscore-dangle": ["error", { "allow": ["_"] }]
+  },
+  "globals": {
+    "__DEV__": true,
+    "__TEST__": true,
+    "__SERVER__": true,
+    "__CLIENT__": true,
+    "logger": true,
+    "_": true
+  }
+}
