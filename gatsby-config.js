@@ -1,9 +1,9 @@
 module.exports = {
     pathPrefix: '/blog',
     siteMetadata: {
-        title: `Gatsby Starter w/ styled-componets`,
-        description: `Gatsby starter using styled-components`,
-        author: `@blakenoll`,
+        title: `Gatsby Starter `,
+        description: `Gatsby starter `,
+        author: `@awesome1888`,
     },
     plugins: [
         // 'gatsby-transformer-remark',
