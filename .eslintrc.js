@@ -60,5 +60,6 @@ module.exports = {
                 allow: ['warn', 'error'],
             },
         ],
+        'react/prop-types': 'off',
     },
 };

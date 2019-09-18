@@ -14,7 +14,7 @@ export const detailsQuery = graphql`
 `;
 
 interface SEOQueryProps {
-    children?: (data: any) => ReactNode;
+    children: (data: any) => ReactNode;
 }
 
 export const SEOQuery: FunctionComponent<SEOQueryProps> = ({ children }) => {
