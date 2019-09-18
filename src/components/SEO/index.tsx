@@ -1,8 +1,20 @@
 import React, { FunctionComponent } from 'react';
 import Helmet from 'react-helmet';
-import { StaticQuery } from 'gatsby';
-import { detailsQuery } from './query';
+import { graphql, StaticQuery } from 'gatsby';
+// import { detailsQuery } from './query';
 import { SEOProps } from './props';
+
+export const detailsQuery = graphql`
+    query DefaultSEOQuery {
+        site {
+            siteMetadata {
+                title
+                description
+                author
+            }
+        }
+    }
+`;
 
 export const SEO: FunctionComponent<SEOProps> = ({
     description = '',
@@ -15,6 +27,8 @@ export const SEO: FunctionComponent<SEOProps> = ({
         <StaticQuery
             query={detailsQuery}
             render={data => {
+                console.log('render!');
+
                 const metaDescription =
                     description || data.site.siteMetadata.description;
                 return (

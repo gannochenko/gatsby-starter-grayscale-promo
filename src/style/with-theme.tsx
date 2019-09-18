@@ -1,5 +1,5 @@
 import React from 'react';
-import theme from './theme.js';
+import { theme } from './theme';
 
 export const ThemeContext = React.createContext(theme);
 export const withTheme = Component => {
