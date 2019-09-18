@@ -1,7 +1,7 @@
 import React, { FunctionComponent, ReactNode } from 'react';
 import { graphql, StaticQuery } from 'gatsby';
 
-export const detailsQuery = graphql`
+const detailsQuery = graphql`
     query DefaultSEOQuery {
         site {
             siteMetadata {
