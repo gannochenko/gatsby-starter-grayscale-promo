@@ -1,5 +1,13 @@
 {
-  "parser": "babel-eslint",
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "prettier",
+    "react",
+    "import",
+    "jsx-a11y",
+    "react-hooks",
+    "@typescript-eslint"
+  ],
   "extends": [
     "eslint:recommended",
     "airbnb-base",
@@ -7,23 +15,46 @@
     "prettier/react",
     "plugin:import/errors",
     "plugin:import/warnings",
-    "plugin:react/recommended"
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier/@typescript-eslint"
   ],
-  "plugins": ["prettier", "react", "import", "jsx-a11y", "react-hooks"],
   "rules": {
     "prettier/prettier": "warn",
     "import/prefer-default-export": "off",
     "no-param-reassign": "off",
     "class-methods-use-this": "off",
     "no-use-before-define": ["error", { "functions": false }],
-    "no-underscore-dangle": ["error", { "allow": ["_"] }]
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "react/prop-types": "off",
+    "lines-between-class-members": "off",
+    "no-lonely-if": "off"
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
   },
   "globals": {
-    "__DEV__": true,
-    "__TEST__": true,
-    "__SERVER__": true,
-    "__CLIENT__": true,
-    "logger": true,
-    "_": true
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".ts", ".tsx"]
+      }
+    }
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true,
+    "jest": true
   }
 }
