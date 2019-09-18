@@ -1,4 +1,9 @@
-.cache
-node_modules
+.DS_Store
+.env
+.yarn-integrity
+yarn-debug.log
+yarn-error.log
+node_modules/
+.cache/
 public
 .idea
