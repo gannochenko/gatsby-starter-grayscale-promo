@@ -2,10 +2,10 @@
   "parser": "@typescript-eslint/parser",
   "plugins": [
     "prettier",
-    "react",
     "import",
-    "jsx-a11y",
+    "react",
     "react-hooks",
+    "jsx-a11y",
     "@typescript-eslint"
   ],
   "extends": [
@@ -15,7 +15,6 @@
     "prettier/react",
     "plugin:import/errors",
     "plugin:import/warnings",
-    "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
     "prettier/@typescript-eslint"
   ],
@@ -25,12 +24,12 @@
     "no-param-reassign": "off",
     "class-methods-use-this": "off",
     "no-use-before-define": ["error", { "functions": false }],
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
     "@typescript-eslint/explicit-function-return-type": "off",
-    "react/prop-types": "off",
     "lines-between-class-members": "off",
-    "no-lonely-if": "off"
+    "no-lonely-if": "off",
+    "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "no-restricted-syntax": "off"
   },
   "parserOptions": {
     "ecmaVersion": 6,
@@ -42,9 +41,6 @@
   "globals": {
   },
   "settings": {
-    "react": {
-      "version": "detect"
-    },
     "import/resolver": {
       "node": {
         "extensions": [".ts", ".tsx"]
