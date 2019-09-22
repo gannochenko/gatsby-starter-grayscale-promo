@@ -30,7 +30,7 @@
     <a href="https://github.com/awesome1888/dark-present"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/awesome1888/dark-present">View Demo</a>
+    <a href="https://awesome1888.github.io/dark-present/">View Demo</a>
     ·
     <a href="https://github.com/awesome1888/dark-present/issues">Report Bug</a>
     ·
