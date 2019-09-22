@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { Container, BackgroundImage, ImageOverlay, Arrow, Data } from './style';
 import { Query } from './query';
 
-export const Header = () => {
+export const Header: FunctionComponent<{}> = () => {
     return (
         <Query>
             {data => (
