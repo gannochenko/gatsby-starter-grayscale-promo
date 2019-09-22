@@ -7,6 +7,7 @@ const HomePage = () => {
     return (
         <Layout>
             <SEO title="Welcome!" keywords={['']} />
+            11
         </Layout>
     );
 };

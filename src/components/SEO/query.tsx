@@ -13,10 +13,10 @@ const detailsQuery = graphql`
     }
 `;
 
-interface SEOQueryProps {
+interface QueryProps {
     children: (data: any) => ReactNode;
 }
 
-export const SEOQuery: FunctionComponent<SEOQueryProps> = ({ children }) => {
+export const Query: FunctionComponent<QueryProps> = ({ children }) => {
     return <StaticQuery query={detailsQuery} render={data => children(data)} />;
 };

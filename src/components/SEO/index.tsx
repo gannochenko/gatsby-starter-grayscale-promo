@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from 'react';
 import Helmet from 'react-helmet';
-import { SEOProps } from './props';
-import { SEOQuery } from './query';
+import { Props } from './type';
+import { Query } from './query';
 
-export const SEO: FunctionComponent<SEOProps> = ({
+export const SEO: FunctionComponent<Props> = ({
     description = '',
     lang = 'en',
     meta = [],
@@ -11,7 +11,7 @@ export const SEO: FunctionComponent<SEOProps> = ({
     title,
 }) => {
     return (
-        <SEOQuery>
+        <Query>
             {data => {
                 console.warn('render!');
 
@@ -42,35 +42,21 @@ export const SEO: FunctionComponent<SEOProps> = ({
                                 property: `og:type`,
                                 content: `website`,
                             },
-                            // {
-                            //   name: `twitter:card`,
-                            //   content: `summary`,
-                            // },
-                            // {
-                            //   name: `twitter:creator`,
-                            //   content: data.site.siteMetadata.author,
-                            // },
-                            // {
-                            //   name: `twitter:title`,
-                            //   content: title,
-                            // },
-                            // {
-                            //   name: `twitter:description`,
-                            //   content: metaDescription,
-                            // },
                         ]
                             .concat(
                                 keywords.length > 0
-                                    ? {
-                                          name: `keywords`,
-                                          content: keywords.join(`, `),
-                                      }
+                                    ? [
+                                          {
+                                              name: `keywords`,
+                                              content: keywords.join(`, `),
+                                          },
+                                      ]
                                     : [],
                             )
                             .concat(meta)}
                     />
                 );
             }}
-        </SEOQuery>
+        </Query>
     );
 };

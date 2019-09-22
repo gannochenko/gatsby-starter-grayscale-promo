@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from 'react';
 // import { Link } from 'gatsby';
 import { GlobalStyle, theme, ThemeContext } from '../../style';
-import { LayoutProps } from './props';
+import { Props } from './type';
 
-export const Layout: FunctionComponent<LayoutProps> = ({ children }) => {
+export const Layout: FunctionComponent<Props> = ({ children }) => {
     return (
         <ThemeContext.Provider value={theme}>
             <GlobalStyle />
