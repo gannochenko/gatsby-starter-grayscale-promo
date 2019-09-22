@@ -34,7 +34,7 @@ export const ImageOverlay = styled.div`
 `;
 
 const expandVertically = 'height: 100vh; overflow-y: hidden;';
-export const DataContainer = styled.div`
+export const Data = styled.div`
     ${central()}
     ${props =>
         media(

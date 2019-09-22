@@ -1,5 +1,6 @@
-import React, { FunctionComponent, ReactNode } from 'react';
+import React, { FunctionComponent } from 'react';
 import { graphql, StaticQuery } from 'gatsby';
+import { QueryProps } from '../../type';
 
 const detailsQuery = graphql`
     query DefaultSEOQuery {
@@ -12,10 +13,6 @@ const detailsQuery = graphql`
         }
     }
 `;
-
-interface QueryProps {
-    children: (data: any) => ReactNode;
-}
 
 export const Query: FunctionComponent<QueryProps> = ({ children }) => {
     return <StaticQuery query={detailsQuery} render={data => children(data)} />;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, BackgroundImage, ImageOverlay, Arrow } from './style';
+import { Container, BackgroundImage, ImageOverlay, Arrow, Data } from './style';
 import { Query } from './query';
 
 export const Header = () => {
@@ -10,6 +10,7 @@ export const Header = () => {
                     <BackgroundImage
                         sizes={data.backgroundImage.childImageSharp.sizes}
                     />
+                    <Data>111</Data>
                     <ImageOverlay />
                     <Arrow />
                 </Container>
