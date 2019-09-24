@@ -5,9 +5,10 @@ export const Footer: FunctionComponent<{}> = () => {
     return (
         <Container>
             <Info>
-                &copy; 2019 г. <NoWrap>&laquo;Save Your Tree&raquo;</NoWrap>
+                <NoWrap>&copy; 2019 г.</NoWrap>{' '}
+                <NoWrap>&laquo;Save Your Tree&raquo;</NoWrap>
             </Info>
-            <Info>Our website uses no cookies ;)</Info>
+            <Info>Our website uses no cookies :)</Info>
         </Container>
     );
 };
