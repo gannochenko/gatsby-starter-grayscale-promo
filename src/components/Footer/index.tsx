@@ -6,7 +6,9 @@ export const Footer: FunctionComponent<{}> = () => {
         <Container>
             <Info>
                 <NoWrap>&copy; 2019</NoWrap>{' '}
-                <NoWrap>&laquo;Save Trees!&raquo; (GatsbyJS starter)</NoWrap>
+                <NoWrap>
+                    &laquo;Save Trees!&raquo; &mdash; a GatsbyJS starter
+                </NoWrap>
             </Info>
             <Info>Our website uses no cookies :)</Info>
         </Container>

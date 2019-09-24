@@ -19,7 +19,10 @@ export const Intro: FunctionComponent<{}> = () => {
                     />
                     <ImageOverlay />
                     <Data>
-                        <Title>Save whales. Спасите китов</Title>
+                        <Title>
+                            Every day millions of trees get killed around the
+                            globe
+                        </Title>
                     </Data>
                     <Arrow />
                 </Container>

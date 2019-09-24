@@ -1,11 +1,12 @@
 import styled from 'styled-components';
-import { media, align, group } from '@bucket-of-bolts/styled-companion';
-import { theme } from '../../style';
+import { align, group } from '@bucket-of-bolts/styled-companion';
+import { media } from '../../style';
 
 export const Container = styled.div`
     position: relative;
     margin: 0;
-    ${media({ all: 'padding: 3rem 1rem;', xs: 'padding: 1rem;' }, theme.grid)}
+    padding: 3rem 1rem;
+    ${media({ xs: 'padding: 1rem;' })}
     ${align('center', 'center')}
     ${group(null, '1rem')}
 

@@ -1,11 +1,15 @@
 import React, { ComponentType } from 'react';
 import { theme } from './theme';
-import { media as styledMedia } from '@bucket-of-bolts/styled-companion';
+import {
+    media as styledMedia,
+    grid as styledGrid,
+    cell as styledCell,
+} from '@bucket-of-bolts/styled-companion';
 import { ObjectLiteral } from '../type';
 
 export const ThemeContext = React.createContext(theme);
-export const withTheme = (Component: ComponentType<{ [key: string]: any }>) => {
-    const ThemedComponent = (props: { [key: string]: any }) => (
+export const withTheme = (Component: ComponentType<ObjectLiteral>) => {
+    const ThemedComponent = (props: ObjectLiteral) => (
         <ThemeContext.Consumer>
             {value => <Component {...props} theme={value} />}
         </ThemeContext.Consumer>
@@ -16,3 +20,7 @@ export const withTheme = (Component: ComponentType<{ [key: string]: any }>) => {
 
 export const media = (rules: ObjectLiteral<string>) =>
     styledMedia(rules, theme.grid);
+
+export const grid = () => styledGrid(undefined, theme.grid);
+
+export const cell = () => styledCell(undefined, theme.grid);

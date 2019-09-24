@@ -7,9 +7,8 @@ import {
     rectangle,
     op,
     bouncedAnimation,
-    media,
 } from '@bucket-of-bolts/styled-companion';
-// import { withTheme } from '../../style';
+import { media } from '../../style';
 import imgArrow from '../../images/arrow-down.svg';
 
 export const Container = styled.div`
@@ -32,11 +31,10 @@ export const ImageOverlay = styled.div`
 const expandVertically = 'height: 100vh; overflow-y: hidden;';
 export const Data = styled.div`
     ${central()}
-    ${props =>
-        media(
-            { md: expandVertically, lg: expandVertically },
-            props.theme.grid,
-        )}
+    ${media({
+        md: expandVertically,
+        lg: expandVertically,
+    })}
     padding: 2rem 1rem;
     position: relative;
 `;
@@ -56,17 +54,15 @@ export const Arrow = styled.div`
   animation-direction: alternate;
   animation-timing-function: ease-in;
 
-  ${props =>
-      media(
-          {
-              lg: 'display: block;',
-              md: 'display: block;',
-              all: 'display: none;',
-          },
-          props.theme.grid,
-      )}
+  display: none;
+  ${media({
+      lg: 'display: block;',
+      md: 'display: block;',
+  })}
 `;
 
 export const Title = styled.div`
     font-size: 2rem;
+    color: white;
+    text-align: center;
 `;
