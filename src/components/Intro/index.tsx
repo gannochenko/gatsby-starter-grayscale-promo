@@ -1,8 +1,15 @@
 import React, { FunctionComponent } from 'react';
-import { Container, BackgroundImage, ImageOverlay, Arrow, Data } from './style';
+import {
+    Container,
+    BackgroundImage,
+    ImageOverlay,
+    Arrow,
+    Data,
+    Title,
+} from './style';
 import { Query } from './query';
 
-export const Header: FunctionComponent<{}> = () => {
+export const Intro: FunctionComponent<{}> = () => {
     return (
         <Query>
             {data => (
@@ -10,8 +17,10 @@ export const Header: FunctionComponent<{}> = () => {
                     <BackgroundImage
                         sizes={data.backgroundImage.childImageSharp.sizes}
                     />
-                    <Data>111</Data>
                     <ImageOverlay />
+                    <Data>
+                        <Title>Save whales. Спасите китов</Title>
+                    </Data>
                     <Arrow />
                 </Container>
             )}

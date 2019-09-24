@@ -9,13 +9,13 @@ import {
     bouncedAnimation,
     media,
 } from '@bucket-of-bolts/styled-companion';
-import { withTheme } from '../../style';
+// import { withTheme } from '../../style';
 import imgArrow from '../../images/arrow-down.svg';
 
-export const Container = withTheme(styled.div`
+export const Container = styled.div`
     position: relative;
     min-width: 320px;
-`);
+`;
 
 export const BackgroundImage = styled(Img)`
     ${absoluteCover()}
@@ -38,6 +38,7 @@ export const Data = styled.div`
             props.theme.grid,
         )}
   padding: 2rem 1rem;
+    position: relative;
 `;
 
 export const Arrow = styled.div`
@@ -64,4 +65,8 @@ export const Arrow = styled.div`
           },
           props.theme.grid,
       )}
+`;
+
+export const Title = styled.div`
+    font-size: 2rem;
 `;
