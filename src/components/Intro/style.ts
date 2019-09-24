@@ -37,7 +37,7 @@ export const Data = styled.div`
             { md: expandVertically, lg: expandVertically },
             props.theme.grid,
         )}
-  padding: 2rem 1rem;
+    padding: 2rem 1rem;
     position: relative;
 `;
 

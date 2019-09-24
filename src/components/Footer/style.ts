@@ -9,8 +9,12 @@ export const Container = styled.div`
     ${align('center', 'center')}
     ${group(null, '1rem')}
 
-    background-color: black;
+    background-color: #161414;
     color: white;
 `;
 
 export const Info = styled.div``;
+
+export const NoWrap = styled.span`
+    white-space: nowrap;
+`;
