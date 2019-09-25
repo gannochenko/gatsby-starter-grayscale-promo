@@ -18,16 +18,20 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
+  <!--
   <a href="https://github.com/awesome1888/dark-present">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
+  -->
 
-  <h3 align="center">dark-present</h3>
+  <h3 align="center">&laquo;Save trees!&raquo; &mdash; GatsbyJS starter</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
+    An awesome GatsbyJS template to quickly prepare a smiple landing!
+    <!--
     <br />
     <a href="https://github.com/awesome1888/dark-present"><strong>Explore the docs »</strong></a>
+    -->
     <br />
     <br />
     <a href="https://awesome1888.github.io/dark-present/">View Demo</a>
