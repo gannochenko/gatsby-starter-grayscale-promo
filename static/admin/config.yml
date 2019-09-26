@@ -1,5 +1,6 @@
 backend:
-    name: test-repo
+    name: github
+    repo: awesome1888/grayscale-promo-gatsbyjs-starter
 media_folder: static/assets
 public_folder: assets
 collections:
