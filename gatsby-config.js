@@ -6,7 +6,7 @@ module.exports = {
         author: '@awesome1888',
     },
     plugins: [
-        // 'gatsby-transformer-remark',
+        'gatsby-transformer-remark',
         'gatsby-plugin-netlify-cms',
         'gatsby-plugin-react-helmet',
         {
