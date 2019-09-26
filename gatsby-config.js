@@ -7,6 +7,7 @@ module.exports = {
     },
     plugins: [
         // 'gatsby-transformer-remark',
+        'gatsby-plugin-netlify-cms',
         'gatsby-plugin-react-helmet',
         {
             resolve: 'gatsby-source-filesystem',

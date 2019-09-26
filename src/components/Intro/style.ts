@@ -10,6 +10,7 @@ import {
 } from '@bucket-of-bolts/styled-companion';
 import { media } from '../../style';
 import imgArrow from '../../images/arrow-down.svg';
+import { align } from '@bucket-of-bolts/styled-companion/build';
 
 export const Container = styled.div`
     position: relative;
@@ -31,6 +32,7 @@ export const ImageOverlay = styled.div`
 const expandVertically = 'height: 100vh; overflow-y: hidden;';
 export const Data = styled.div`
     ${central()}
+    ${align('center', 'center', 'column')}
     ${media({
         md: expandVertically,
         lg: expandVertically,
@@ -61,8 +63,31 @@ export const Arrow = styled.div`
   })}
 `;
 
-export const Title = styled.div`
-    font-size: 2rem;
+export const Title = styled.h1`
+    font-size: 4rem;
+    font-weight: 600;
+    letter-spacing: 0.4rem;
+    ${media({
+        xs: `
+        font-size: 1.5rem;
+        letter-spacing: 0.15rem;
+    `,
+    })};
     color: white;
     text-align: center;
+    margin: 0;
+`;
+
+export const SubTitle = styled.div`
+    color: #fff;
+    position: relative;
+    text-align: center;
+    font-size: 1.3rem;
+    max-width: 60%;
+    margin-top: 1rem;
+    ${media({
+        xs: `
+        font-size: 1rem;
+    `,
+    })}
 `;

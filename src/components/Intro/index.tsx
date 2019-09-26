@@ -6,26 +6,29 @@ import {
     Arrow,
     Data,
     Title,
+    SubTitle,
 } from './style';
 import { Query } from './query';
+import { Copyright } from '../Copyright';
 
 export const Intro: FunctionComponent<{}> = () => {
     return (
         <Query>
             {data => (
-                <Container>
-                    <BackgroundImage
-                        sizes={data.backgroundImage.childImageSharp.sizes}
-                    />
-                    <ImageOverlay />
-                    <Data>
-                        <Title>
-                            Every day millions of trees get killed around the
-                            globe
-                        </Title>
-                    </Data>
-                    <Arrow />
-                </Container>
+                <>
+                    <Container>
+                        <BackgroundImage
+                            sizes={data.backgroundImage.childImageSharp.sizes}
+                        />
+                        <ImageOverlay />
+                        <Data>
+                            <Title>Every day we loose thousands of trees</Title>
+                            <SubTitle>We need to plant more trees!</SubTitle>
+                        </Data>
+                        <Arrow />
+                    </Container>
+                    <Copyright>Photo by niko photos on Unsplash</Copyright>
+                </>
             )}
         </Query>
     );

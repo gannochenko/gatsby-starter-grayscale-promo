@@ -3,6 +3,7 @@ import { theme } from './theme';
 
 export const GlobalStyle = createGlobalStyle`
     @import url('https://fonts.googleapis.com/css?family=Montserrat');
+    @import url('https://fonts.googleapis.com/css?family=Roboto');
 
     html {
         font-size: 20px;
@@ -18,7 +19,7 @@ export const GlobalStyle = createGlobalStyle`
         padding: 0 !important;
         margin: 0 !important;
         font-weight: 400;
-        line-height: 1.8;
+        line-height: 1.4;
         font-size: 0.8rem;
         letter-spacing: -0.05px;
         color: ${theme.color.text};
