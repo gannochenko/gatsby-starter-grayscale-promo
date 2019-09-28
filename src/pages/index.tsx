@@ -29,7 +29,7 @@ const HomePage: FunctionComponent<Props> = ({ data }) => {
             <SEO title="Welcome!" keywords={['']} />
             <Intro />
             {nodes.map(node => (
-                <TextBlock key={node.id} dangerouslySetInnerHTML={node.html} />
+                <TextBlock key={node.id} html={node.html} />
             ))}
         </Layout>
     );
