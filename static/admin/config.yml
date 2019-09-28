@@ -13,3 +13,11 @@ collections:
           - { name: date, label: Date, widget: datetime }
           - { name: title, label: Title }
           - { name: body, label: Body, widget: markdown }
+    - name: block
+      label: Block
+      folder: content/blocks
+      create: true
+      fields:
+          - { name: sort, label: Sort }
+          - { name: effect, label: Effect, widget: list, allow_add: false }
+          - { name: body, label: Body, widget: markdown }
