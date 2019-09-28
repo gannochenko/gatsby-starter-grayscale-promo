@@ -6,20 +6,19 @@
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
 [![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 [![Language][language-shield]][language-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ca134944-33b3-41ac-8d12-048fc8c20637/deploy-status)](https://app.netlify.com/sites/festive-villani-316b3c/deploys)
 
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
   <!--
-  <a href="https://github.com/awesome1888/dark-present">
+  <a href="https://github.com/awesome1888/grayscale-promo-gatsbyjs-starter">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
   -->
@@ -30,15 +29,15 @@
     An awesome GatsbyJS template to quickly prepare a smiple landing!
     <!--
     <br />
-    <a href="https://github.com/awesome1888/dark-present"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/awesome1888/grayscale-promo-gatsbyjs-starter"><strong>Explore the docs »</strong></a>
     -->
     <br />
     <br />
-    <a href="https://awesome1888.github.io/dark-present/">View Demo</a>
+    <a href="https://awesome1888.github.io/grayscale-promo-gatsbyjs-starter/">View Demo</a>
     ·
-    <a href="https://github.com/awesome1888/dark-present/issues">Report Bug</a>
+    <a href="https://github.com/awesome1888/grayscale-promo-gatsbyjs-starter/issues">Report Bug</a>
     ·
-    <a href="https://github.com/awesome1888/dark-present/issues">Request Feature</a>
+    <a href="https://github.com/awesome1888/grayscale-promo-gatsbyjs-starter/issues">Request Feature</a>
   </p>
 </p>
 
@@ -129,7 +128,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/awesome1888/dark-present/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/awesome1888/grayscale-promo-gatsbyjs-starter/issues) for a list of proposed features (and known issues).
 
 
 
@@ -182,18 +181,18 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/awesome1888/dark-present.svg?style=flat-square
-[contributors-url]: https://github.com/awesome1888/dark-present/graphs/contributors
-[language-shield]: https://img.shields.io/github/languages/top/awesome1888/dark-present.svg?style=flat-square
-[language-url]: https://github.com/awesome1888/dark-present
-[forks-shield]: https://img.shields.io/github/forks/awesome1888/dark-present.svg?style=flat-square
-[forks-url]: https://github.com/awesome1888/dark-present/network/members
-[stars-shield]: https://img.shields.io/github/stars/awesome1888/dark-present.svg?style=flat-square
-[stars-url]: https://github.com/awesome1888/dark-present/stargazers
-[issues-shield]: https://img.shields.io/github/issues/awesome1888/dark-present.svg?style=flat-square
-[issues-url]: https://github.com/awesome1888/dark-present/issues
-[license-shield]: https://img.shields.io/github/license/awesome1888/dark-present.svg?style=flat-square
-[license-url]: https://github.com/awesome1888/dark-present/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/awesome1888/grayscale-promo-gatsbyjs-starter.svg?style=flat-square
+[contributors-url]: https://github.com/awesome1888/grayscale-promo-gatsbyjs-starter/graphs/contributors
+[language-shield]: https://img.shields.io/github/languages/top/awesome1888/grayscale-promo-gatsbyjs-starter.svg?style=flat-square
+[language-url]: https://github.com/awesome1888/grayscale-promo-gatsbyjs-starter
+[forks-shield]: https://img.shields.io/github/forks/awesome1888/grayscale-promo-gatsbyjs-starter.svg?style=flat-square
+[forks-url]: https://github.com/awesome1888/grayscale-promo-gatsbyjs-starter/network/members
+[stars-shield]: https://img.shields.io/github/stars/awesome1888/grayscale-promo-gatsbyjs-starter.svg?style=flat-square
+[stars-url]: https://github.com/awesome1888/grayscale-promo-gatsbyjs-starter/stargazers
+[issues-shield]: https://img.shields.io/github/issues/awesome1888/grayscale-promo-gatsbyjs-starter.svg?style=flat-square
+[issues-url]: https://github.com/awesome1888/grayscale-promo-gatsbyjs-starter/issues
+[license-shield]: https://img.shields.io/github/license/awesome1888/grayscale-promo-gatsbyjs-starter.svg?style=flat-square
+[license-url]: https://github.com/awesome1888/grayscale-promo-gatsbyjs-starter/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/sergey-gannochenko/
 [product-screenshot]: images/screenshot.png

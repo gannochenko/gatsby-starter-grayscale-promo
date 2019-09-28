@@ -28,7 +28,7 @@ Trace:
 
 npm manifest: 
   {
-      "name": "gatsby-starter-dark-present",
+      "name": "gatsby-starter-grayscalre-promo",
       "description": "",
       "version": "1.0.0",
       "author": "Sergei Gannochenko <gannochenko.sv@gmail.com>",

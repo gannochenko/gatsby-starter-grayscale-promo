@@ -1,5 +1,5 @@
 {
-    "name": "gatsby-starter-dark-present",
+    "name": "gatsby-starter-grayscalre-promo",
     "description": "",
     "version": "1.0.0",
     "author": "Sergei Gannochenko <gannochenko.sv@gmail.com>",
@@ -53,9 +53,8 @@
     "scripts": {
         "build": "gatsby build",
         "develop": "gatsby develop --host=0.0.0.0",
-        "deploy": "gatsby build --prefix-paths && gh-pages -d public",
         "format": "prettier --write src/**/*.{js,jsx}",
-        "start": "npm run develop",
+        "start": "yarn run develop",
         "serve": "gatsby serve",
         "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
         "lint": "eslint ./src/ --ext .jsx,.tsx",

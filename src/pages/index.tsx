@@ -1,11 +1,14 @@
 import React from 'react';
+import { graphql } from 'gatsby';
 
 import { Layout } from '../components/Layout';
 import { SEO } from '../components/SEO';
 import { Intro } from '../components/Intro';
 import { TextBlock } from '../components/TextBlock';
 
-const HomePage = () => {
+// @ts-ignore
+const HomePage = ({ data }) => {
+    console.log(data);
     return (
         <Layout>
             <SEO title="Welcome!" keywords={['']} />
@@ -18,5 +21,15 @@ const HomePage = () => {
         </Layout>
     );
 };
+
+export const query = graphql`
+    query HomePageQuery {
+        site {
+            siteMetadata {
+                description
+            }
+        }
+    }
+`;
 
 export default HomePage;
