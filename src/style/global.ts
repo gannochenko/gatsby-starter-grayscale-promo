@@ -239,4 +239,11 @@ export const GlobalStyle = createGlobalStyle`
     td {
         word-break: break-word;
     }
+
+    p {
+        margin-block-start: 1rem;
+        margin-block-end: 1rem;
+        margin-inline-start: 0;
+        margin-inline-end: 0;
+    }
 `;

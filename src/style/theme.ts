@@ -1,7 +1,7 @@
 export const theme = {
     color: {
         background: 'white',
-        text: '#2E2E2E',
+        text: '#0a0a0a',
     },
     grid: {
         resolution: 12,
