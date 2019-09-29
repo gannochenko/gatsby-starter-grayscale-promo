@@ -9,7 +9,7 @@ import {
     bouncedAnimation,
 } from '@bucket-of-bolts/styled-companion';
 import { media } from '../../style';
-import imgArrow from '../../images/arrow-down.svg';
+import imgArrow from '../../../static/assets/arrow-down.svg';
 import { align } from '@bucket-of-bolts/styled-companion/build';
 
 export const Container = styled.div`

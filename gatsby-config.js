@@ -1,5 +1,4 @@
 module.exports = {
-    pathPrefix: '/dark-present',
     siteMetadata: {
         title: 'Gatsby Starter ',
         description: 'Gatsby starter ',
@@ -11,13 +10,6 @@ module.exports = {
             options: {
                 name: 'media',
                 path: `${__dirname}/static/assets`,
-            },
-        },
-        {
-            resolve: 'gatsby-source-filesystem',
-            options: {
-                name: 'images',
-                path: `${__dirname}/src/images`,
             },
         },
         {
