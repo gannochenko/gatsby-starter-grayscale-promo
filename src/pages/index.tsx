@@ -46,8 +46,8 @@ export const query = graphql`
                 frontmatter {
                     thumbnail {
                         childImageSharp {
-                            sizes(maxWidth: 1240, quality: 80) {
-                                ...GatsbyImageSharpSizes
+                            fluid(maxWidth: 1240, quality: 80) {
+                                ...GatsbyImageSharpFluid_tracedSVG
                             }
                         }
                     }

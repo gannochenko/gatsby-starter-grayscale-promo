@@ -18,7 +18,7 @@ export const Intro: FunctionComponent<{}> = () => {
                 <>
                     <Container>
                         <BackgroundImage
-                            sizes={data.backgroundImage.childImageSharp.sizes}
+                            sizes={data.backgroundImage.childImageSharp.fluid}
                         />
                         <ImageOverlay />
                         <Data>

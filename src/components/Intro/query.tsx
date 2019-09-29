@@ -6,8 +6,8 @@ const query = graphql`
     query HeaderImage {
         backgroundImage: file(relativePath: { eq: "header.jpg" }) {
             childImageSharp {
-                sizes(maxWidth: 1240, quality: 80) {
-                    ...GatsbyImageSharpSizes
+                fluid(maxWidth: 1240, quality: 80) {
+                    ...GatsbyImageSharpFluid_tracedSVG
                 }
             }
         }
