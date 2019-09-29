@@ -44,12 +44,16 @@ export const query = graphql`
                 id
                 html
                 frontmatter {
-                    thumbnail {
-                        childImageSharp {
-                            fluid(maxWidth: 1240, quality: 80) {
-                                ...GatsbyImageSharpFluid_tracedSVG
+                    graphic {
+                        image {
+                            childImageSharp {
+                                fluid(maxWidth: 1240, quality: 80) {
+                                    ...GatsbyImageSharpFluid_tracedSVG
+                                }
                             }
                         }
+                        author
+                        source
                     }
                 }
             }
