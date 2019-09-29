@@ -1,12 +1,30 @@
 import React, { FunctionComponent } from 'react';
+import Img from 'gatsby-image';
 
-import { TextBlockContainer, Inner } from './style';
+import {
+    TextBlockContainer,
+    Inner,
+    ImageBlockSingle,
+    ImageBlockWrap,
+} from './style';
 import { Props } from './type';
 
-export const TextBlock: FunctionComponent<Props> = ({ html }) => {
+export const TextBlock: FunctionComponent<Props> = ({
+    html,
+    graphics = [],
+}) => {
+    graphics = graphics || [];
+
     return (
         <TextBlockContainer>
-            <Inner dangerouslySetInnerHTML={{ __html: html }} />
+            {!!html && <Inner dangerouslySetInnerHTML={{ __html: html }} />}
+            {!!graphics.length && (
+                <ImageBlockSingle>
+                    <ImageBlockWrap>
+                        <Img sizes={graphics[0].image.childImageSharp.fluid} />
+                    </ImageBlockWrap>
+                </ImageBlockSingle>
+            )}
         </TextBlockContainer>
     );
 };

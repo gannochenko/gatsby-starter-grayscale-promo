@@ -1,6 +1,6 @@
 ---
-id: '100000'
-sort: 100
+id: 'three-pics'
+sort: 3
 effect:
   - sdf
 graphic:
@@ -10,5 +10,7 @@ graphic:
   - author: Me
     image: /assets/67808124_2642087959351093_5605696219868299264_n.jpg
     source: ''
+  - author: Me
+    image: /assets/67808124_2642087959351093_5605696219868299264_n.jpg
+    source: ''
 ---
-lalala

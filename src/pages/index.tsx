@@ -6,32 +6,42 @@ import { SEO } from '../components/SEO';
 import { Intro } from '../components/Intro';
 import { TextBlock } from '../components/TextBlock';
 
-export interface Node {
-    id: string;
-    html: string;
+interface Graphics {
+    source?: string;
+    author?: string;
+    image: any;
 }
 
-export interface Data {
+interface Node {
+    id: string;
+    html: string;
+    frontmatter: {
+        graphic: Graphics[];
+    };
+}
+
+interface Data {
     allMarkdownRemark: {
         nodes: Node[];
     };
 }
 
-export interface Props {
+interface Props {
     data: Data;
 }
 
 const HomePage: FunctionComponent<Props> = ({ data }) => {
     const { allMarkdownRemark: { nodes = [] } = {} } = data;
-
-    console.log(nodes);
-
     return (
         <Layout>
             <SEO title="Welcome!" keywords={['']} />
             <Intro />
             {nodes.map(node => (
-                <TextBlock key={node.id} html={node.html} />
+                <TextBlock
+                    key={node.id}
+                    html={node.html}
+                    graphics={node.frontmatter.graphic}
+                />
             ))}
         </Layout>
     );
