@@ -28,6 +28,8 @@ collections:
                 - name: author
                   label: 'Author'
                   widget: string
+                  required: false
                 - name: source
                   label: 'Source'
                   widget: string
+                  required: false
