@@ -15,9 +15,19 @@ collections:
           - { name: sort, label: Sort, widget: number, valueType: int }
           - { name: effect, label: Effect, widget: list, allow_add: false }
           - { name: body, label: Body, widget: markdown }
-          - label: 'Featured Image'
-            name: 'thumbnail'
-            widget: 'image'
-            media_library:
-                config:
-                    multiple: true
+          - label: 'Graphic'
+            name: 'graphic'
+            widget: 'list'
+            fields:
+                - name: image
+                  label: 'Image'
+                  widget: 'image'
+                  media_library:
+                      config:
+                      multiple: true
+                - name: author
+                  label: 'Author'
+                  widget: string
+                - name: source
+                  label: 'Source'
+                  widget: string
