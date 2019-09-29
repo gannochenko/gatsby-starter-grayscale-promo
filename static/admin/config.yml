@@ -3,6 +3,7 @@ backend:
     repo: awesome1888/grayscale-promo-gatsbyjs-starter
 media_folder: static/assets
 public_folder: assets
+media_folder_relative: true
 collections:
     - name: block
       label: Block
@@ -11,13 +12,12 @@ collections:
       identifier_field: id
       fields:
           - { name: id, label: ID }
-          - { name: sort, label: Sort }
+          - { name: sort, label: Sort, widget: number, valueType: int }
           - { name: effect, label: Effect, widget: list, allow_add: false }
           - { name: body, label: Body, widget: markdown }
           - label: 'Featured Image'
             name: 'thumbnail'
             widget: 'image'
-            default: '/uploads/chocolate-dogecoin.jpg'
             media_library:
                 config:
                     multiple: true

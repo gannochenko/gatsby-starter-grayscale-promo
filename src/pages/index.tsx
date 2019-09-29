@@ -24,6 +24,8 @@ export interface Props {
 const HomePage: FunctionComponent<Props> = ({ data }) => {
     const { allMarkdownRemark: { nodes = [] } = {} } = data;
 
+    console.log(nodes);
+
     return (
         <Layout>
             <SEO title="Welcome!" keywords={['']} />
@@ -41,6 +43,15 @@ export const query = graphql`
             nodes {
                 id
                 html
+                frontmatter {
+                    thumbnail {
+                        childImageSharp {
+                            sizes(maxWidth: 1240, quality: 80) {
+                                ...GatsbyImageSharpSizes
+                            }
+                        }
+                    }
+                }
             }
         }
     }
