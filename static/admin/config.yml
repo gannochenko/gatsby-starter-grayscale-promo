@@ -8,7 +8,16 @@ collections:
       label: Block
       folder: content/blocks
       create: true
+      identifier_field: id
       fields:
+          - { name: id, label: ID }
           - { name: sort, label: Sort }
           - { name: effect, label: Effect, widget: list, allow_add: false }
           - { name: body, label: Body, widget: markdown }
+          - label: 'Featured Image'
+            name: 'thumbnail'
+            widget: 'image'
+            default: '/uploads/chocolate-dogecoin.jpg'
+            media_library:
+                config:
+                    multiple: true
