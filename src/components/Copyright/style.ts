@@ -6,8 +6,8 @@ import { media } from '../../style';
 
 export const CopyrightContainer = styled.div`
     text-align: center;
-    font-size: 0.8rem;
-    ${media({ xs: 'font-size: 0.6rem;' })}
+    font-size: 0.6rem;
+    ${media({ xs: 'font-size: 0.6rem;' })};
     color: #6c7a89;
     margin: 0.5rem 0.25rem;
 `;

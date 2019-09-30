@@ -1,13 +1,14 @@
 import React, { FunctionComponent } from 'react';
-import Img from 'gatsby-image';
 
 import {
     TextBlockContainer,
     Inner,
     ImageBlockSingle,
     ImageBlockWrap,
+    Image,
 } from './style';
 import { Props } from './type';
+import { Copyright } from '../Copyright';
 
 export const TextBlock: FunctionComponent<Props> = ({
     html,
@@ -18,10 +19,13 @@ export const TextBlock: FunctionComponent<Props> = ({
     return (
         <TextBlockContainer>
             {!!html && <Inner dangerouslySetInnerHTML={{ __html: html }} />}
-            {!!graphics.length && (
+            {graphics.length === 1 && (
                 <ImageBlockSingle>
                     <ImageBlockWrap>
-                        <Img sizes={graphics[0].image.childImageSharp.fluid} />
+                        <Image
+                            sizes={graphics[0].image.childImageSharp.fluid}
+                        />
+                        <Copyright>Lala</Copyright>
                     </ImageBlockWrap>
                 </ImageBlockSingle>
             )}

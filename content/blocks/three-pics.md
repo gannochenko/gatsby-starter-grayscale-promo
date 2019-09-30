@@ -3,13 +3,7 @@ id: 'three-pics'
 sort: 3
 effect:
   - sdf
-graphic:
-  - author: 3d
-    image: /assets/38282342_2492312050995334_7976049543378632704_o.jpg
-    source: facebook
-  - author: Me
-    image: /assets/67808124_2642087959351093_5605696219868299264_n.jpg
-    source: ''
+graphics:
   - author: Me
     image: /assets/67808124_2642087959351093_5605696219868299264_n.jpg
     source: ''

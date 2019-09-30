@@ -16,7 +16,7 @@ interface Node {
     id: string;
     html: string;
     frontmatter: {
-        graphic: Graphics[];
+        graphics: Graphics[];
     };
 }
 
@@ -40,7 +40,7 @@ const HomePage: FunctionComponent<Props> = ({ data }) => {
                 <TextBlock
                     key={node.id}
                     html={node.html}
-                    graphics={node.frontmatter.graphic}
+                    graphics={node.frontmatter.graphics}
                 />
             ))}
         </Layout>
@@ -54,7 +54,7 @@ export const query = graphql`
                 id
                 html
                 frontmatter {
-                    graphic {
+                    graphics {
                         image {
                             childImageSharp {
                                 fluid(maxWidth: 1240, quality: 80) {

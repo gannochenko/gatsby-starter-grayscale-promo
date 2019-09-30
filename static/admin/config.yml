@@ -26,8 +26,8 @@ collections:
           - name: body
             label: Body
             widget: markdown
-          - label: 'Graphic'
-            name: 'graphic'
+          - label: 'Graphics'
+            name: 'graphics'
             widget: 'list'
             fields:
                 - name: image
