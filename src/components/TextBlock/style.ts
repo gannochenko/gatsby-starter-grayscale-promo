@@ -33,6 +33,7 @@ export const Image = styled(Img)`
     width: 100%;
     height: auto;
     background-color: #f2f1ef;
+    border-radius: 2px;
 `;
 
 export const ImageGallery = styled.div`

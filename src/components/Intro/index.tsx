@@ -27,7 +27,7 @@ export const Intro: FunctionComponent<{}> = () => {
                         </Data>
                         <Arrow />
                     </Container>
-                    <Copyright>Photo by niko photos on Unsplash</Copyright>
+                    <Copyright author="niko photos" source="Unsplash" />
                 </>
             )}
         </Query>

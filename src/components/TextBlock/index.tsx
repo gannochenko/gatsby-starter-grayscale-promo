@@ -28,9 +28,7 @@ export const TextBlock: FunctionComponent<Props> = ({
                         <Image
                             sizes={graphics[0].image.childImageSharp.fluid}
                         />
-                        {!!graphics[0].author && (
-                            <Copyright>{graphics[0].author}</Copyright>
-                        )}
+                        <Copyright {...graphics[0]} />
                     </ImageWrap>
                 </ImageSingle>
             )}
@@ -42,9 +40,7 @@ export const TextBlock: FunctionComponent<Props> = ({
                                 <Image
                                     sizes={item.image.childImageSharp.fluid}
                                 />
-                                {!!item.author && (
-                                    <Copyright>{item.author}</Copyright>
-                                )}
+                                <Copyright {...item} />
                             </GalleryItem>
                         ))}
                     </ImageGalleryGrid>
