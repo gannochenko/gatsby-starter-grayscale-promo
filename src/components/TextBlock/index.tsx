@@ -25,7 +25,9 @@ export const TextBlock: FunctionComponent<Props> = ({
                         <Image
                             sizes={graphics[0].image.childImageSharp.fluid}
                         />
-                        <Copyright>Lala</Copyright>
+                        {!!graphics[0].author && (
+                            <Copyright>{graphics[0].author}</Copyright>
+                        )}
                     </ImageBlockWrap>
                 </ImageBlockSingle>
             )}
