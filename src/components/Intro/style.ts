@@ -18,13 +18,13 @@ export const Container = styled.div`
 `;
 
 export const BackgroundImage = styled(Img)`
-    ${absoluteCover()}
+    ${absoluteCover()};
     user-select: none;
     position: absolute !important;
 `;
 
 export const ImageOverlay = styled.div`
-    ${absoluteCover()}
+    ${absoluteCover()};
     background-color: black;
     opacity: 0.6;
 `;
