@@ -3,7 +3,7 @@ import { align } from '@bucket-of-bolts/styled-companion/build';
 import Img from 'gatsby-image';
 import { media, grid, cell } from '../../style';
 
-export const TextBlockContainer = styled.div`
+export const StandardBlockContainer = styled.div`
     margin: 4rem 1rem;
     ${media({ xs: 'margin: 2rem 0rem;' })}
     ${align('center', 'center')};

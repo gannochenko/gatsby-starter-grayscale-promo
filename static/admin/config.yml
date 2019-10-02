@@ -47,7 +47,7 @@ collections:
                 - { label: 'Accent', value: 'AccentBlock' }
                 - { label: 'Quote', value: 'QuoteBlock' }
             required: false
-          - name: effect,
+          - name: effect
             label: Effect
             widget: select
             options:
@@ -55,8 +55,8 @@ collections:
                 - { label: 'Fade+Slide-in to right', value: 'fade-slide-right' }
                 - { label: 'Fade+Slide-in to top', value: 'fade-slide-top' }
                 - {
-                    label: 'Fade+Slide-in to bottom',
-                    value: 'fade-slide-bottom',
+                      label: 'Fade+Slide-in to bottom',
+                      value: 'fade-slide-bottom',
                   }
             required: false
           - label: Font size

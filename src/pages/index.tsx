@@ -4,7 +4,9 @@ import { graphql } from 'gatsby';
 import { Layout } from '../components/Layout';
 import { SEO } from '../components/SEO';
 import { Intro } from '../components/Intro';
+
 import { StandardBlock } from '../components/StandardBlock';
+import { AccentBlock } from '../components/AccentBlock';
 
 interface Graphics {
     source?: string;
@@ -17,6 +19,7 @@ interface Node {
     html: string;
     frontmatter: {
         graphics: Graphics[];
+        widget: 'StandardBlock' | 'AccentBlock' | 'QuoteBlock';
     };
 }
 
@@ -30,19 +33,33 @@ interface Props {
     data: Data;
 }
 
+const getWidget = (node: Node) => {
+    const { frontmatter: { widget = '' } = {} } = node;
+    console.log(widget);
+    if (widget === 'AccentBlock') {
+        return AccentBlock;
+    }
+
+    return StandardBlock;
+};
+
 const HomePage: FunctionComponent<Props> = ({ data }) => {
     const { allMarkdownRemark: { nodes = [] } = {} } = data;
     return (
         <Layout>
             <SEO title="Welcome!" keywords={['']} />
             <Intro />
-            {nodes.map(node => (
-                <StandardBlock
-                    key={node.id}
-                    html={node.html}
-                    graphics={node.frontmatter.graphics}
-                />
-            ))}
+            {nodes.map(node => {
+                const Widget = getWidget(node);
+
+                return (
+                    <Widget
+                        key={node.id}
+                        html={node.html}
+                        graphics={node.frontmatter.graphics}
+                    />
+                );
+            })}
         </Layout>
     );
 };
@@ -65,6 +82,7 @@ export const query = graphql`
                         author
                         source
                     }
+                    widget
                 }
             }
         }

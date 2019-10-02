@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 
 import {
-    TextBlockContainer,
+    StandardBlockContainer,
     Inner,
     ImageSingle,
     ImageWrap,
@@ -20,7 +20,7 @@ export const StandardBlock: FunctionComponent<Props> = ({
     graphics = graphics || [];
 
     return (
-        <TextBlockContainer>
+        <StandardBlockContainer>
             {!!html && <Inner dangerouslySetInnerHTML={{ __html: html }} />}
             {graphics.length === 1 && (
                 <ImageSingle>
@@ -46,6 +46,6 @@ export const StandardBlock: FunctionComponent<Props> = ({
                     </ImageGalleryGrid>
                 </ImageGallery>
             )}
-        </TextBlockContainer>
+        </StandardBlockContainer>
     );
 };
