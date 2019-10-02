@@ -13,7 +13,7 @@ import {
 import { Props } from './type';
 import { Copyright } from '../Copyright';
 
-export const TextBlock: FunctionComponent<Props> = ({
+export const StandardBlock: FunctionComponent<Props> = ({
     html,
     graphics = [],
 }) => {

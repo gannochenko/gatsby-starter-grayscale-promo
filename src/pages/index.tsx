@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 import { Layout } from '../components/Layout';
 import { SEO } from '../components/SEO';
 import { Intro } from '../components/Intro';
-import { TextBlock } from '../components/TextBlock';
+import { StandardBlock } from '../components/StandardBlock';
 
 interface Graphics {
     source?: string;
@@ -37,7 +37,7 @@ const HomePage: FunctionComponent<Props> = ({ data }) => {
             <SEO title="Welcome!" keywords={['']} />
             <Intro />
             {nodes.map(node => (
-                <TextBlock
+                <StandardBlock
                     key={node.id}
                     html={node.html}
                     graphics={node.frontmatter.graphics}

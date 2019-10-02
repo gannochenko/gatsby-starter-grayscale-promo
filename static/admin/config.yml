@@ -21,7 +21,14 @@ collections:
           - name: effect,
             label: Effect
             widget: select
-            options: ['left', 'center', 'right']
+            options:
+                - { label: 'Fade+Slide-in to left', value: 'fade-slide-left' }
+                - { label: 'Fade+Slide-in to right', value: 'fade-slide-right' }
+                - { label: 'Fade+Slide-in to top', value: 'fade-slide-top' }
+                - {
+                      label: 'Fade+Slide-in to bottom',
+                      value: 'fade-slide-bottom',
+                  }
             required: false
           - name: body
             label: Body
@@ -44,3 +51,20 @@ collections:
                   label: 'Source'
                   widget: string
                   required: false
+          - label: Widget
+            name: widget
+            widget: select
+            options:
+                - { label: 'Standard', value: 'StandardBlock' }
+                - { label: 'Accent', value: 'AccentBlock' }
+                - { label: 'Quote', value: 'QuoteBlock' }
+            required: false
+          - label: Font size
+            name: font_size
+            widget: select
+            options:
+                - { label: 'Large', value: 'large' }
+                - { label: 'Standard', value: 'standard' }
+                - { label: 'Small', value: 'small' }
+            default: standard
+            required: false
