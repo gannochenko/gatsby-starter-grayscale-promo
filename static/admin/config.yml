@@ -18,18 +18,6 @@ collections:
             label: Sort
             widget: number
             valueType: int
-          - name: effect,
-            label: Effect
-            widget: select
-            options:
-                - { label: 'Fade+Slide-in to left', value: 'fade-slide-left' }
-                - { label: 'Fade+Slide-in to right', value: 'fade-slide-right' }
-                - { label: 'Fade+Slide-in to top', value: 'fade-slide-top' }
-                - {
-                      label: 'Fade+Slide-in to bottom',
-                      value: 'fade-slide-bottom',
-                  }
-            required: false
           - name: body
             label: Body
             widget: markdown
@@ -58,6 +46,18 @@ collections:
                 - { label: 'Standard', value: 'StandardBlock' }
                 - { label: 'Accent', value: 'AccentBlock' }
                 - { label: 'Quote', value: 'QuoteBlock' }
+            required: false
+          - name: effect,
+            label: Effect
+            widget: select
+            options:
+                - { label: 'Fade+Slide-in to left', value: 'fade-slide-left' }
+                - { label: 'Fade+Slide-in to right', value: 'fade-slide-right' }
+                - { label: 'Fade+Slide-in to top', value: 'fade-slide-top' }
+                - {
+                    label: 'Fade+Slide-in to bottom',
+                    value: 'fade-slide-bottom',
+                  }
             required: false
           - label: Font size
             name: font_size
