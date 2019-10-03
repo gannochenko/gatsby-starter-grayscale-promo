@@ -60,11 +60,12 @@ collections:
                   }
             required: false
           - label: Font size
-            name: font_size
+            name: fontSize
             widget: select
             options:
-                - { label: 'Large', value: 'large' }
-                - { label: 'Standard', value: 'standard' }
                 - { label: 'Small', value: 'small' }
+                - { label: 'Standard', value: 'standard' }
+                - { label: 'Medium', value: 'medium' }
+                - { label: 'Large', value: 'large' }
             default: standard
             required: false

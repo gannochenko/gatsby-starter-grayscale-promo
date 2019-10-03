@@ -7,3 +7,5 @@ export interface QueryProps {
 export interface ObjectLiteral<P = any> {
     [k: string]: P;
 }
+
+export type FontSize = 'large' | 'medium' | 'standard' | 'small';

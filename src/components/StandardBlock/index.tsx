@@ -15,13 +15,20 @@ import { Copyright } from '../Copyright';
 
 export const StandardBlock: FunctionComponent<Props> = ({
     html,
+    fontSize = 'standard',
     graphics = [],
 }) => {
     graphics = graphics || [];
+    fontSize = fontSize || 'standard';
 
     return (
         <StandardBlockContainer>
-            {!!html && <Inner dangerouslySetInnerHTML={{ __html: html }} />}
+            {!!html && (
+                <Inner
+                    dangerouslySetInnerHTML={{ __html: html }}
+                    fontSize={fontSize}
+                />
+            )}
             {graphics.length === 1 && (
                 <ImageSingle>
                     <ImageWrap>

@@ -15,6 +15,7 @@ import { align } from '@bucket-of-bolts/styled-companion/build';
 export const Container = styled.div`
     position: relative;
     min-width: 320px;
+    font-family: Montserrat, sans-serif;
 `;
 
 export const BackgroundImage = styled(Img)`

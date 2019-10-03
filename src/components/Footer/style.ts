@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { align, group } from '@bucket-of-bolts/styled-companion';
+import { align } from '@bucket-of-bolts/styled-companion';
 import { media } from '../../style';
 
 export const Container = styled.div`
@@ -7,11 +7,12 @@ export const Container = styled.div`
     margin: 0;
     padding: 3rem 1rem;
     ${media({ xs: 'padding: 1rem;' })}
-    ${align('center', 'center')}
-    ${group(null, '1rem')}
+    ${align('center', 'center', 'column')}
 
-    background-color: #161414;
+    background-color: #333333;
     color: white;
+    font-size: 0.8rem;
+    font-weight: 300;
 `;
 
 export const Info = styled.div``;

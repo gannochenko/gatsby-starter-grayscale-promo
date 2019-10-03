@@ -1,29 +1,29 @@
 import styled from 'styled-components';
 import { align } from '@bucket-of-bolts/styled-companion/build';
-import { media } from '../../style';
+import { media, withTheme } from '../../style';
 
-export const AccentBlockContainer = styled.div`
-    margin: 4rem 1rem;
+export const AccentBlockContainer = withTheme(styled.div`
+    margin: 3rem 1rem;
     ${media({ xs: 'margin: 2rem 0rem;' })}
-    ${align('center', 'center')};
+    ${align('center', 'center', 'column')};
     position: relative;
-    font-weight: 600;
-`;
+    // @ts-ignore
+    font-size: ${props => props.theme.font[props.fontSize]};
+`);
 
 export const Inner = styled.div`
-    width: 100%;
     text-align: center;
-    &:after,
-    &:before {
-        content: '';
-        position: absolute;
-        top: auto;
-        bottom: auto;
-        left: auto;
-        right: auto;
-        top: 0;
-        height: 1px;
-        width: 200px;
-        background-color: #000;
-    }
+    max-width: 60%;
+    ${media({ xs: 'max-width: 80%;' })};
+`;
+
+interface DashProps {
+    bottom?: boolean;
+}
+
+export const Dash = styled.div<DashProps>`
+    height: 1px;
+    width: 200px;
+    background-color: #000;
+    ${props => (props.bottom ? 'margin-top' : 'margin-bottom')}: 1rem;
 `;

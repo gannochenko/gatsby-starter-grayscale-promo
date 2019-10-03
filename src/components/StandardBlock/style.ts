@@ -1,22 +1,22 @@
 import styled from 'styled-components';
 import { align } from '@bucket-of-bolts/styled-companion/build';
 import Img from 'gatsby-image';
-import { media, grid, cell } from '../../style';
+import { media, grid, cell, withTheme } from '../../style';
 
 export const StandardBlockContainer = styled.div`
-    margin: 4rem 1rem;
+    margin: 3rem 1rem;
     ${media({ xs: 'margin: 2rem 0rem;' })}
     ${align('center', 'center')};
     position: relative;
 `;
 
-export const Inner = styled.div`
+export const Inner = withTheme(styled.div`
     max-width: 60%;
     ${media({ xs: 'max-width: 80%', sm: 'max-width: 70%' })};
-    font-size: 1.4rem;
-    font-family: Roboto, serif;
+    // @ts-ignore
+    font-size: ${props => props.theme.font[props.fontSize]};
     font-weight: 300;
-`;
+`);
 
 export const ImageSingle = styled.div`
     position: relative;
@@ -38,7 +38,7 @@ export const Image = styled(Img)`
 
 export const ImageGallery = styled.div`
     margin: 0 5rem;
-    ${media({ xs: 'margin: 0' })};
+    ${media({ sm: 'margin: 0 2rem;', xs: 'margin: 0' })};
     width: 100%;
 `;
 

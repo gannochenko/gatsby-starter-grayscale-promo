@@ -7,6 +7,7 @@ import { Intro } from '../components/Intro';
 
 import { StandardBlock } from '../components/StandardBlock';
 import { AccentBlock } from '../components/AccentBlock';
+import { FontSize } from '../type';
 
 interface Graphics {
     source?: string;
@@ -20,6 +21,7 @@ interface Node {
     frontmatter: {
         graphics: Graphics[];
         widget: 'StandardBlock' | 'AccentBlock' | 'QuoteBlock';
+        fontSize: FontSize;
     };
 }
 
@@ -35,7 +37,6 @@ interface Props {
 
 const getWidget = (node: Node) => {
     const { frontmatter: { widget = '' } = {} } = node;
-    console.log(widget);
     if (widget === 'AccentBlock') {
         return AccentBlock;
     }
@@ -51,15 +52,39 @@ const HomePage: FunctionComponent<Props> = ({ data }) => {
             <Intro />
             {nodes.map(node => {
                 const Widget = getWidget(node);
-
                 return (
                     <Widget
                         key={node.id}
                         html={node.html}
+                        fontSize={node.frontmatter.fontSize}
                         graphics={node.frontmatter.graphics}
                     />
                 );
             })}
+            <AccentBlock
+                fontSize="small"
+                html={
+                    '<p>На данный момент у нас собрано около 40% средств, однако этого недостаточно. Мы будем очень рады вашим пожертвованиям.</p>'
+                }
+            />
+            <AccentBlock
+                fontSize="standard"
+                html={
+                    '<p>На данный момент у нас собрано около 40% средств, однако этого недостаточно. Мы будем очень рады вашим пожертвованиям.</p>'
+                }
+            />
+            <AccentBlock
+                fontSize="medium"
+                html={
+                    '<p>На данный момент у нас собрано около 40% средств, однако этого недостаточно. Мы будем очень рады вашим пожертвованиям.</p>'
+                }
+            />
+            <AccentBlock
+                fontSize="large"
+                html={
+                    '<p>На данный момент у нас собрано около 40% средств, однако этого недостаточно. Мы будем очень рады вашим пожертвованиям.</p>'
+                }
+            />
         </Layout>
     );
 };
@@ -83,6 +108,7 @@ export const query = graphql`
                         source
                     }
                     widget
+                    fontSize
                 }
             }
         }

@@ -1,12 +1,17 @@
 import React, { FunctionComponent } from 'react';
 
-import { AccentBlockContainer, Inner } from './style';
+import { AccentBlockContainer, Inner, Dash } from './style';
 import { Props } from './type';
 
-export const AccentBlock: FunctionComponent<Props> = ({ html }) => {
+export const AccentBlock: FunctionComponent<Props> = ({
+    html,
+    fontSize = 'large',
+}) => {
     return (
-        <AccentBlockContainer>
+        <AccentBlockContainer fontSize={fontSize}>
+            <Dash />
             <Inner dangerouslySetInnerHTML={{ __html: html }} />
+            <Dash bottom />
         </AccentBlockContainer>
     );
 };

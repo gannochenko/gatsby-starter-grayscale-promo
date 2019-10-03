@@ -12,4 +12,10 @@ export const theme = {
             lg: [1200, null],
         },
     },
+    font: {
+        large: '1.6rem',
+        medium: '1.4rem',
+        standard: '1.1rem',
+        small: '0.8rem',
+    },
 };
