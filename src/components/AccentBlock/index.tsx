@@ -7,8 +7,9 @@ import { Props } from './type';
 const AccentBlockComponent: FunctionComponent<Props> = ({
     html,
     fontSize = 'large',
-    effectProps = {},
+    effectProps,
 }) => {
+    console.log(effectProps);
     return (
         <AccentBlockContainer fontSize={fontSize} {...effectProps}>
             <Dash />
