@@ -23,9 +23,6 @@ const Effect: FunctionComponent<{ children: any }> = ({ children }) => {
     const [runEffect, setRunEffect] = useState(false);
 
     const onEventFire = (id: string) => {
-        console.log('DEBUG received for ' + id);
-        console.log(id + ' === ' + nodeId);
-        console.log(typeof id + ' === ' + typeof nodeId);
         console.log(id.toString() + ' === ' + nodeId.toString());
         if (id.toString() === nodeId.toString()) {
             console.log('set state for ' + id);
