@@ -4,6 +4,7 @@ import nanoid from 'nanoid';
 import { throttle } from 'throttle-debounce';
 
 import { ObjectLiteral } from '../type';
+import { createDecipher } from 'crypto';
 
 type ElementWithDataset = Element & { dataset: { effectsNodeId: string } };
 
@@ -22,7 +23,10 @@ const Effect: FunctionComponent<{ children: any }> = ({ children }) => {
     const [runEffect, setRunEffect] = useState(false);
 
     const onEventFire = (id: string) => {
-        console.log('received for ' + id);
+        console.log('DEBUG received for ' + id);
+        console.log(id + ' === ' + nodeId);
+        console.log(typeof id + ' === ' + typeof nodeId);
+        console.log(id.toString() + ' === ' + nodeId.toString());
         if (id.toString() === nodeId.toString()) {
             console.log('set state for ' + id);
             setRunEffect(true);
@@ -83,7 +87,6 @@ const onWindowUpdate = throttle(200, () => {
         const itemRect = item.getBoundingClientRect();
         const itemTop = itemRect.top + windowScrollTop;
         if (itemTop + Math.min(itemRect.height * 0.2, 200) < windowBottom) {
-            console.log('Emit for ' + id);
             item.classList.remove('effects-node');
             eventEmitter.emit('effect.run', [id]);
         }
@@ -91,7 +94,6 @@ const onWindowUpdate = throttle(200, () => {
 });
 
 export const start = () => {
-    console.log('start!');
     window.addEventListener('resize', onWindowUpdate, true);
     window.addEventListener('scroll', onWindowUpdate, true);
 
