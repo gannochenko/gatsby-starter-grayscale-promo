@@ -88,6 +88,7 @@ const onWindowUpdate = throttle(200, () => {
 });
 
 export const start = () => {
+    console.log('start!');
     window.addEventListener('resize', onWindowUpdate, true);
     window.addEventListener('scroll', onWindowUpdate, true);
 
