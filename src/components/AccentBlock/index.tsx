@@ -7,15 +7,10 @@ import { Props } from './type';
 const AccentBlockComponent: FunctionComponent<Props> = ({
     html,
     fontSize = 'large',
-    runEffect = false,
     effectProps = {},
 }) => {
     return (
-        <AccentBlockContainer
-            fontSize={fontSize}
-            {...effectProps}
-            runEffect={runEffect}
-        >
+        <AccentBlockContainer fontSize={fontSize} {...effectProps}>
             <Dash />
             <Inner dangerouslySetInnerHTML={{ __html: html }} />
             <Dash bottom />

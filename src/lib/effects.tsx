@@ -7,9 +7,10 @@ import { ObjectLiteral } from '../type';
 
 type ElementWithDataset = Element & { dataset: { effectsNodeId: string } };
 
-export type EffectRun = boolean;
 export interface EffectProps {
     'data-effects-node-id': string;
+    className: string;
+    runEffect: boolean;
 }
 
 export const eventEmitter = new EventEmitter();
@@ -38,12 +39,12 @@ const Effect: FunctionComponent<{ children: any }> = ({ children }) => {
         () => ({
             'data-effects-node-id': nodeId,
             className: 'effects-node',
+            runEffect,
         }),
-        [nodeId],
+        [runEffect, nodeId],
     );
 
     return children({
-        runEffect,
         effectProps,
     });
 };
@@ -52,7 +53,7 @@ export const withEffects = (Component: any) => {
     const WithEffects = (props: ObjectLiteral) => {
         return (
             <Effect>
-                {(effectProps: ObjectLiteral<EffectProps | EffectRun>) => (
+                {(effectProps: ObjectLiteral<EffectProps>) => (
                     <Component {...props} {...effectProps} />
                 )}
             </Effect>

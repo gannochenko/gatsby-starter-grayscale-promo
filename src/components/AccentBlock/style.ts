@@ -14,8 +14,8 @@ export const AccentBlockContainer = withTheme(styled.div`
     transform: translateY(-20px);
     transition: all ease-out 300ms;
 
-    // @ts-ignore
     ${props =>
+        // @ts-ignore
         props.runEffect
             ? `
         opacity: 1;
