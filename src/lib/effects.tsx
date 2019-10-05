@@ -22,7 +22,9 @@ const Effect: FunctionComponent<{ children: any }> = ({ children }) => {
     const [runEffect, setRunEffect] = useState(false);
 
     const onEventFire = (id: string) => {
+        console.log('received for ' + id);
         if (id.toString() === nodeId.toString()) {
+            console.log('set state for ' + id);
             setRunEffect(true);
             eventEmitter.off('effect.run', onEventFire);
         }
@@ -81,6 +83,7 @@ const onWindowUpdate = throttle(200, () => {
         const itemRect = item.getBoundingClientRect();
         const itemTop = itemRect.top + windowScrollTop;
         if (itemTop + Math.min(itemRect.height * 0.2, 200) < windowBottom) {
+            console.log('Emit for ' + id);
             item.classList.remove('effects-node');
             eventEmitter.emit('effect.run', [id]);
         }
