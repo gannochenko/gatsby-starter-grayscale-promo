@@ -34,12 +34,17 @@ const Effect: FunctionComponent<{ children: any }> = ({ children }) => {
         };
     }, [eventEmitter, onEventFire]);
 
-    return children({
-        runEffect,
-        effectProps: {
+    const effectProps = useMemo(
+        () => ({
             'data-effects-node-id': nodeId,
             className: 'effects-node',
-        },
+        }),
+        [nodeId],
+    );
+
+    return children({
+        runEffect,
+        effectProps,
     });
 };
 
@@ -62,8 +67,8 @@ export const withEffects = (Component: any) => {
 };
 
 const onWindowUpdate = throttle(200, () => {
-    const windowBottom =
-        window.innerHeight + (window.scrollY || window.pageYOffset);
+    const windowScrollTop = window.scrollY || window.pageYOffset;
+    const windowBottom = window.innerHeight + windowScrollTop;
 
     const items = document.querySelectorAll('.effects-node') as NodeListOf<
         ElementWithDataset
@@ -73,7 +78,7 @@ const onWindowUpdate = throttle(200, () => {
         const id = item.dataset.effectsNodeId;
 
         const itemRect = item.getBoundingClientRect();
-        const itemTop = itemRect.top;
+        const itemTop = itemRect.top + windowScrollTop;
         if (itemTop + Math.min(itemRect.height * 0.2, 200) < windowBottom) {
             item.classList.remove('effects-node');
             eventEmitter.emit('effect.run', [id]);

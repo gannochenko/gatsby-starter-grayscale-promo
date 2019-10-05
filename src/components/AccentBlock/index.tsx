@@ -10,9 +10,12 @@ const AccentBlockComponent: FunctionComponent<Props> = ({
     runEffect = false,
     effectProps = {},
 }) => {
-    console.log(runEffect);
     return (
-        <AccentBlockContainer fontSize={fontSize} {...effectProps}>
+        <AccentBlockContainer
+            fontSize={fontSize}
+            {...effectProps}
+            runEffect={runEffect}
+        >
             <Dash />
             <Inner dangerouslySetInnerHTML={{ __html: html }} />
             <Dash bottom />

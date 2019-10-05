@@ -9,6 +9,19 @@ export const AccentBlockContainer = withTheme(styled.div`
     position: relative;
     // @ts-ignore
     font-size: ${props => props.theme.font[props.fontSize]};
+
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all ease-out 300ms;
+
+    // @ts-ignore
+    ${props =>
+        props.runEffect
+            ? `
+        opacity: 1;
+        transform: translateY(0);
+    `
+            : ''}
 `);
 
 export const Inner = styled.div`
