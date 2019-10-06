@@ -9,7 +9,6 @@ const AccentBlockComponent: FunctionComponent<Props> = ({
     fontSize = 'large',
     effectProps,
 }) => {
-    console.log(effectProps);
     return (
         <AccentBlockContainer fontSize={fontSize} {...effectProps}>
             <Dash />

@@ -4,6 +4,7 @@ import nanoid from 'nanoid';
 import { throttle } from 'throttle-debounce';
 
 import { ObjectLiteral } from '../type';
+import { createDecipher } from 'crypto';
 
 type ElementWithDataset = Element & { dataset: { effectsNodeId: string } };
 
@@ -17,6 +18,7 @@ export const eventEmitter = new EventEmitter();
 
 const Effect: FunctionComponent<{ children: any }> = ({ children }) => {
     const nodeId = useMemo(() => {
+        console.log('create component!');
         return nanoid();
     }, []);
     const [runEffect, setRunEffect] = useState(false);
@@ -24,7 +26,6 @@ const Effect: FunctionComponent<{ children: any }> = ({ children }) => {
     const onEventFire = (id: string) => {
         console.log(id.toString() + ' === ' + nodeId.toString());
         if (id.toString() === nodeId.toString()) {
-            console.log('set state for ' + id);
             setRunEffect(true);
             eventEmitter.off('effect.run', onEventFire);
         }
@@ -97,6 +98,7 @@ export const start = () => {
         onWindowUpdate();
     } else {
         const onLoad = () => {
+            console.log('generate IDS!');
             onWindowUpdate();
             document.removeEventListener('DOMContentLoaded', onWindowUpdate);
         };
