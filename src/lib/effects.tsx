@@ -4,7 +4,6 @@ import nanoid from 'nanoid';
 import { throttle } from 'throttle-debounce';
 
 import { ObjectLiteral } from '../type';
-import { createDecipher } from 'crypto';
 
 type ElementWithDataset = Element & { dataset: { effectsNodeId: string } };
 
@@ -95,6 +94,7 @@ export const start = () => {
     window.addEventListener('scroll', onWindowUpdate, true);
 
     if (document.readyState != 'loading') {
+        console.log('generate IDS!');
         onWindowUpdate();
     } else {
         const onLoad = () => {
