@@ -122,14 +122,16 @@ export const start = () => {
         }
 
         const onReactReady = debounce(100, () => {
-            console.log('REACT READY');
+            eventEmitter.off('react.ready', onReactReady);
+            console.log('RUN');
+            onWindowUpdate();
         });
 
         eventEmitter.on('react.ready', onReactReady);
-        setTimeout(() => {
-            console.log('TIMEOUT');
-            onWindowUpdate();
-        }, 300);
+        // setTimeout(() => {
+        //     console.log('TIMEOUT');
+        //     onWindowUpdate();
+        // }, 300);
     };
 
     if (document.readyState != 'loading') {
