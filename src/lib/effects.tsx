@@ -127,7 +127,7 @@ export const start = () => {
             // @ts-ignore
             console.log(window._effectIds);
         }
-        setTimeout(() => onWindowUpdate(), 150);
+        setTimeout(() => onWindowUpdate(), 300);
     };
 
     if (document.readyState != 'loading') {
