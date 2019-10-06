@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useState, useEffect, useMemo } from 'react';
 import EventEmitter from 'events';
 import nanoid from 'nanoid';
-import { throttle } from 'throttle-debounce';
+import { debounce, throttle } from 'throttle-debounce';
 
 import { ObjectLiteral } from '../type';
 
@@ -17,8 +17,6 @@ export const eventEmitter = new EventEmitter();
 
 const Effect: FunctionComponent<{ children: any }> = ({ children }) => {
     const nodeId = useMemo(() => {
-        console.log('create component!');
-
         let id = null;
         if (typeof window !== 'undefined') {
             // @ts-ignore
@@ -31,8 +29,6 @@ const Effect: FunctionComponent<{ children: any }> = ({ children }) => {
         if (!id) {
             id = nanoid();
         }
-
-        console.log('Id selected ' + id);
 
         return id;
     }, []);
@@ -49,6 +45,7 @@ const Effect: FunctionComponent<{ children: any }> = ({ children }) => {
     useEffect(() => {
         console.log('event listener bound');
         eventEmitter.on('effect.run', onEventFire);
+        eventEmitter.emit('react.ready');
         return () => {
             eventEmitter.off('effect.run', onEventFire);
         };
@@ -104,7 +101,6 @@ const onWindowUpdate = throttle(200, () => {
         const itemTop = itemRect.top + windowScrollTop;
         if (itemTop + Math.min(itemRect.height * 0.2, 200) < windowBottom) {
             item.classList.remove('effects-node');
-            console.log('run for ' + id);
             eventEmitter.emit('effect.run', [id]);
         }
     }
@@ -123,19 +119,23 @@ export const start = () => {
                 // @ts-ignore
                 window._effectIds.push(item.dataset.effectsNodeId);
             });
-
-            // @ts-ignore
-            console.log(window._effectIds);
         }
-        setTimeout(() => onWindowUpdate(), 300);
+
+        const onReactReady = debounce(100, () => {
+            console.log('REACT READY');
+        });
+
+        eventEmitter.on('react.ready', onReactReady);
+        setTimeout(() => {
+            console.log('TIMEOUT');
+            onWindowUpdate();
+        }, 300);
     };
 
     if (document.readyState != 'loading') {
-        console.log('generate IDS!');
         firstPass();
     } else {
         const onLoad = () => {
-            console.log('generate IDS!');
             firstPass();
             document.removeEventListener('DOMContentLoaded', onLoad);
         };
