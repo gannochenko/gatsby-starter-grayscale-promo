@@ -19,15 +19,20 @@ const Effect: FunctionComponent<{ children: any }> = ({ children }) => {
     const nodeId = useMemo(() => {
         console.log('create component!');
 
+        let id = null;
         if (typeof window !== 'undefined') {
             // @ts-ignore
             const ids = window._effectIds;
             if (ids && ids.length) {
-                return ids.shift();
+                id = ids.shift();
             }
         }
 
-        return nanoid();
+        id = nanoid();
+
+        console.log('Id selected ' + id);
+
+        return id;
     }, []);
     const [runEffect, setRunEffect] = useState(false);
 
@@ -40,6 +45,7 @@ const Effect: FunctionComponent<{ children: any }> = ({ children }) => {
     };
 
     useEffect(() => {
+        console.log('event listener bound');
         eventEmitter.on('effect.run', onEventFire);
         return () => {
             eventEmitter.off('effect.run', onEventFire);
