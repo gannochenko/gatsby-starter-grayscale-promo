@@ -18,6 +18,13 @@ export const eventEmitter = new EventEmitter();
 const Effect: FunctionComponent<{ children: any }> = ({ children }) => {
     const nodeId = useMemo(() => {
         console.log('create component!');
+
+        // @ts-ignore
+        const ids = window._effectIds;
+        if (ids && ids.length) {
+            return ids.shift();
+        }
+
         return nanoid();
     }, []);
     const [runEffect, setRunEffect] = useState(false);
@@ -69,13 +76,16 @@ export const withEffects = (Component: any) => {
     return WithEffects;
 };
 
+const getItems = () =>
+    document.querySelectorAll('.effects-node') as NodeListOf<
+        ElementWithDataset
+    >;
+
 const onWindowUpdate = throttle(200, () => {
     const windowScrollTop = window.scrollY || window.pageYOffset;
     const windowBottom = window.innerHeight + windowScrollTop;
 
-    const items = document.querySelectorAll('.effects-node') as NodeListOf<
-        ElementWithDataset
-    >;
+    const items = getItems();
     for (let i = 0; i < items.length; i++) {
         const item = items[i];
         const id = item.dataset.effectsNodeId;
@@ -93,13 +103,27 @@ export const start = () => {
     window.addEventListener('resize', onWindowUpdate, true);
     window.addEventListener('scroll', onWindowUpdate, true);
 
+    const firstPass = () => {
+        const items = getItems();
+        // @ts-ignore
+        window._effectIds = [];
+        items.forEach(item => {
+            // @ts-ignore
+            window._effectIds.push(item.dataset.effectsNodeId);
+        });
+
+        // @ts-ignore
+        console.log(window._effectIds);
+        onWindowUpdate();
+    };
+
     if (document.readyState != 'loading') {
         console.log('generate IDS!');
-        onWindowUpdate();
+        firstPass();
     } else {
         const onLoad = () => {
             console.log('generate IDS!');
-            onWindowUpdate();
+            firstPass();
             document.removeEventListener('DOMContentLoaded', onWindowUpdate);
         };
         document.addEventListener('DOMContentLoaded', onLoad);
