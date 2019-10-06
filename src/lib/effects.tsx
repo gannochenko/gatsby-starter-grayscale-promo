@@ -19,7 +19,7 @@ const Effect: FunctionComponent<{ children: any }> = ({ children }) => {
     const nodeId = useMemo(() => {
         console.log('create component!');
 
-        if (window) {
+        if (typeof window !== 'undefined') {
             // @ts-ignore
             const ids = window._effectIds;
             if (ids && ids.length) {
@@ -106,7 +106,7 @@ export const start = () => {
     window.addEventListener('scroll', onWindowUpdate, true);
 
     const firstPass = () => {
-        if (window) {
+        if (typeof window !== 'undefined') {
             const items = getItems();
             // @ts-ignore
             window._effectIds = [];
