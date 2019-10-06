@@ -119,7 +119,7 @@ export const start = () => {
             // @ts-ignore
             console.log(window._effectIds);
         }
-        onWindowUpdate();
+        setTimeout(() => onWindowUpdate(), 150);
     };
 
     if (document.readyState != 'loading') {
