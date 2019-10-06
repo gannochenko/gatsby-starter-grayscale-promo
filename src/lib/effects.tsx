@@ -35,7 +35,6 @@ const Effect: FunctionComponent<{ children: any }> = ({ children }) => {
     const [runEffect, setRunEffect] = useState(false);
 
     const onEventFire = (id: string) => {
-        console.log(id.toString() + ' === ' + nodeId.toString());
         if (id.toString() === nodeId.toString()) {
             setRunEffect(true);
             eventEmitter.off('effect.run', onEventFire);
@@ -43,7 +42,6 @@ const Effect: FunctionComponent<{ children: any }> = ({ children }) => {
     };
 
     useEffect(() => {
-        console.log('event listener bound');
         eventEmitter.on('effect.run', onEventFire);
         eventEmitter.emit('react.ready');
         return () => {
@@ -123,15 +121,10 @@ export const start = () => {
 
         const onReactReady = debounce(100, () => {
             eventEmitter.off('react.ready', onReactReady);
-            console.log('RUN');
             onWindowUpdate();
         });
 
         eventEmitter.on('react.ready', onReactReady);
-        // setTimeout(() => {
-        //     console.log('TIMEOUT');
-        //     onWindowUpdate();
-        // }, 300);
     };
 
     if (document.readyState != 'loading') {
