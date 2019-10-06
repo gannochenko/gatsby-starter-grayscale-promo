@@ -19,10 +19,12 @@ const Effect: FunctionComponent<{ children: any }> = ({ children }) => {
     const nodeId = useMemo(() => {
         console.log('create component!');
 
-        // @ts-ignore
-        const ids = window._effectIds;
-        if (ids && ids.length) {
-            return ids.shift();
+        if (window) {
+            // @ts-ignore
+            const ids = window._effectIds;
+            if (ids && ids.length) {
+                return ids.shift();
+            }
         }
 
         return nanoid();
@@ -104,16 +106,18 @@ export const start = () => {
     window.addEventListener('scroll', onWindowUpdate, true);
 
     const firstPass = () => {
-        const items = getItems();
-        // @ts-ignore
-        window._effectIds = [];
-        items.forEach(item => {
+        if (window) {
+            const items = getItems();
             // @ts-ignore
-            window._effectIds.push(item.dataset.effectsNodeId);
-        });
+            window._effectIds = [];
+            items.forEach(item => {
+                // @ts-ignore
+                window._effectIds.push(item.dataset.effectsNodeId);
+            });
 
-        // @ts-ignore
-        console.log(window._effectIds);
+            // @ts-ignore
+            console.log(window._effectIds);
+        }
         onWindowUpdate();
     };
 
@@ -124,7 +128,7 @@ export const start = () => {
         const onLoad = () => {
             console.log('generate IDS!');
             firstPass();
-            document.removeEventListener('DOMContentLoaded', onWindowUpdate);
+            document.removeEventListener('DOMContentLoaded', onLoad);
         };
         document.addEventListener('DOMContentLoaded', onLoad);
     }
