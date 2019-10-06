@@ -96,6 +96,7 @@ const onWindowUpdate = throttle(200, () => {
         const itemTop = itemRect.top + windowScrollTop;
         if (itemTop + Math.min(itemRect.height * 0.2, 200) < windowBottom) {
             item.classList.remove('effects-node');
+            console.log('run for ' + id);
             eventEmitter.emit('effect.run', [id]);
         }
     }
