@@ -4,7 +4,6 @@ import nanoid from 'nanoid';
 import { throttle } from 'throttle-debounce';
 
 import { ObjectLiteral } from '../type';
-import { createDecipher } from 'crypto';
 
 type ElementWithDataset = Element & { dataset: { effectsNodeId: string } };
 
@@ -41,7 +40,7 @@ const Effect: FunctionComponent<{ children: any }> = ({ children }) => {
     const effectProps = useMemo(
         () => ({
             'data-effects-node-id': nodeId,
-            className: 'effects-node',
+            className: 'effects-node effects-node-' + nodeId,
             runEffect,
         }),
         [runEffect, nodeId],
