@@ -28,7 +28,9 @@ const Effect: FunctionComponent<{ children: any }> = ({ children }) => {
             }
         }
 
-        id = nanoid();
+        if (!id) {
+            id = nanoid();
+        }
 
         console.log('Id selected ' + id);
 
