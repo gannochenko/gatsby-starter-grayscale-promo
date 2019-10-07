@@ -52,7 +52,7 @@ const Effect: FunctionComponent<{ children: any }> = ({ children }) => {
     const effectProps = useMemo(
         () => ({
             'data-effects-node-id': nodeId,
-            className: 'effects-node effects-node-' + nodeId,
+            className: 'effects-node',
             runEffect,
         }),
         [runEffect, nodeId],
@@ -142,3 +142,5 @@ export const stop = () => {
     window.removeEventListener('resize', onWindowUpdate);
     window.removeEventListener('scroll', onWindowUpdate);
 };
+
+export const renderEffect = () => {};
