@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useState, useEffect, useMemo } from 'react';
 import EventEmitter from 'events';
-import { debounce, throttle } from 'throttle-debounce';
+import { throttle } from 'throttle-debounce';
 
 import { ObjectLiteral } from '../type';
 
@@ -13,7 +13,7 @@ export interface EffectProps {
 }
 
 export const eventEmitter = new EventEmitter();
-const idGenerator = function*() {
+const IDGenerator = function*() {
     let i = 0;
     while (true) {
         i += 1;
@@ -21,38 +21,27 @@ const idGenerator = function*() {
     }
 };
 
-const generator = idGenerator();
+export const idGenerator = IDGenerator();
+
+const EVENT_EFFECT_RUN = 'effect.run';
 
 const Effect: FunctionComponent<{ children: any }> = ({ children }) => {
     const nodeId = useMemo(() => {
-        // let id = null;
-        // if (typeof window !== 'undefined') {
-        //     // @ts-ignore
-        //     const ids = window._effectIds;
-        //     if (ids && ids.length) {
-        //         id = ids.shift();
-        //     }
-        // }
-        //
-        // if (!id) {
-        //     id = nanoid();
-        // }
-
-        return generator.next().value;
+        return idGenerator.next().value;
     }, []);
     const [runEffect, setRunEffect] = useState(false);
 
     const onEventFire = (id: string) => {
         if (id.toString() === nodeId.toString()) {
             setRunEffect(true);
-            eventEmitter.off('effect.run', onEventFire);
+            eventEmitter.off(EVENT_EFFECT_RUN, onEventFire);
         }
     };
 
     useEffect(() => {
-        eventEmitter.on('effect.run', onEventFire);
+        eventEmitter.on(EVENT_EFFECT_RUN, onEventFire);
         return () => {
-            eventEmitter.off('effect.run', onEventFire);
+            eventEmitter.off(EVENT_EFFECT_RUN, onEventFire);
         };
     }, [eventEmitter, onEventFire]);
 
@@ -121,7 +110,7 @@ const processNode = (
     const itemTop = itemRect.top + windowScrollTop;
     if (itemTop + Math.min(itemRect.height * 0.2, 200) < windowBottom) {
         node.classList.remove('effects-node');
-        eventEmitter.emit('effect.run', [id]);
+        eventEmitter.emit(EVENT_EFFECT_RUN, [id]);
     }
 };
 
@@ -147,40 +136,9 @@ export const start = () => {
             processNode(node);
         }
     });
-
-    // const firstPass = () => {
-    //     // if (typeof window !== 'undefined') {
-    //     //     const items = getItems();
-    //     //     // @ts-ignore
-    //     //     window._effectIds = [];
-    //     //     items.forEach(item => {
-    //     //         // @ts-ignore
-    //     //         window._effectIds.push(item.dataset.effectsNodeId);
-    //     //     });
-    //     // }
-    //
-    //     const onReactReady = debounce(100, () => {
-    //         eventEmitter.off('react.ready', onReactReady);
-    //         onWindowUpdate();
-    //     });
-    //
-    //     eventEmitter.on('react.ready', onReactReady);
-    // };
-    //
-    // if (document.readyState != 'loading') {
-    //     firstPass();
-    // } else {
-    //     const onLoad = () => {
-    //         firstPass();
-    //         document.removeEventListener('DOMContentLoaded', onLoad);
-    //     };
-    //     document.addEventListener('DOMContentLoaded', onLoad);
-    // }
 };
 
 export const stop = () => {
     window.removeEventListener('resize', onWindowUpdate);
     window.removeEventListener('scroll', onWindowUpdate);
 };
-
-export const renderEffect = () => {};

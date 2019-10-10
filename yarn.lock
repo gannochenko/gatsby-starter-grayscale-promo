@@ -1821,6 +1821,11 @@ alphanum-sort@^1.0.0:
   resolved "https://registry.yarnpkg.com/alphanum-sort/-/alphanum-sort-1.0.2.tgz#97a1119649b211ad33691d9f9f486a8ec9fbe0a3"
   integrity sha1-l6ERlkmyEa0zaR2fn0hqjsn74KM=
 
+animated-scroll-to@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/animated-scroll-to/-/animated-scroll-to-2.0.3.tgz#2c72c645df4d3eb82df9461ea9122eaec0942739"
+  integrity sha512-W2x6jpBWLgN+2OTtUBRQKfucu/9Z7pgH81EmuhbqhUJ6Gm5LhiE3ZAm+uKpqK0rfZS8usO8fTV5l610IpRIc6w==
+
 ansi-align@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ansi-align/-/ansi-align-2.0.0.tgz#c36aeccba563b89ceb556f3690f0b1d9e3547f7f"

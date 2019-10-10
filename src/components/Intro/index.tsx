@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react';
+import animateScrollTo from 'animated-scroll-to';
 import {
     Container,
     BackgroundImage,
@@ -12,6 +13,17 @@ import { Query } from './query';
 import { Copyright } from '../Copyright';
 
 export const Intro: FunctionComponent<{}> = () => {
+    const scrollWindow = () => {
+        const data = document.querySelector('.intro-data');
+        if (data) {
+            const dataRect = data.getBoundingClientRect();
+            console.log(dataRect.top + dataRect.height);
+            animateScrollTo(dataRect.top + dataRect.height, {
+                speed: 1000,
+            });
+        }
+    };
+
     return (
         <Query>
             {data => (
@@ -21,11 +33,11 @@ export const Intro: FunctionComponent<{}> = () => {
                             sizes={data.backgroundImage.childImageSharp.fluid}
                         />
                         <ImageOverlay />
-                        <Data>
+                        <Data className="intro-data">
                             <Title>Every day we loose thousands of trees</Title>
                             <SubTitle>We need to plant more trees!</SubTitle>
                         </Data>
-                        <Arrow />
+                        <Arrow onClick={() => scrollWindow()} />
                     </Container>
                     <Copyright author="niko photos" source="Unsplash" />
                 </>

@@ -5,6 +5,7 @@
     "author": "Sergei Gannochenko <gannochenko.sv@gmail.com>",
     "dependencies": {
         "@bucket-of-bolts/styled-companion": "^1.0.14",
+        "animated-scroll-to": "^2.0.3",
         "babel-plugin-styled-components": "^1.10.0",
         "events": "^3.0.0",
         "gatsby": "^2.1.18",
