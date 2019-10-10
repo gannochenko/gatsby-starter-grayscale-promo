@@ -1,6 +1,5 @@
 import React, { FunctionComponent, useState, useEffect, useMemo } from 'react';
 import EventEmitter from 'events';
-import nanoid from 'nanoid';
 import { debounce, throttle } from 'throttle-debounce';
 
 import { ObjectLiteral } from '../type';
@@ -14,23 +13,32 @@ export interface EffectProps {
 }
 
 export const eventEmitter = new EventEmitter();
+const idGenerator = function*() {
+    let i = 0;
+    while (true) {
+        i += 1;
+        yield i.toString();
+    }
+};
+
+const generator = idGenerator();
 
 const Effect: FunctionComponent<{ children: any }> = ({ children }) => {
     const nodeId = useMemo(() => {
-        let id = null;
-        if (typeof window !== 'undefined') {
-            // @ts-ignore
-            const ids = window._effectIds;
-            if (ids && ids.length) {
-                id = ids.shift();
-            }
-        }
+        // let id = null;
+        // if (typeof window !== 'undefined') {
+        //     // @ts-ignore
+        //     const ids = window._effectIds;
+        //     if (ids && ids.length) {
+        //         id = ids.shift();
+        //     }
+        // }
+        //
+        // if (!id) {
+        //     id = nanoid();
+        // }
 
-        if (!id) {
-            id = nanoid();
-        }
-
-        return id;
+        return generator.next().value;
     }, []);
     const [runEffect, setRunEffect] = useState(false);
 
@@ -43,7 +51,6 @@ const Effect: FunctionComponent<{ children: any }> = ({ children }) => {
 
     useEffect(() => {
         eventEmitter.on('effect.run', onEventFire);
-        eventEmitter.emit('react.ready');
         return () => {
             eventEmitter.off('effect.run', onEventFire);
         };
@@ -58,9 +65,15 @@ const Effect: FunctionComponent<{ children: any }> = ({ children }) => {
         [runEffect, nodeId],
     );
 
-    return children({
+    const html = children({
         effectProps,
     });
+
+    useEffect(() => {
+        setTimeout(() => eventEmitter.emit('element.ready', [nodeId]), 100);
+    }, []);
+
+    return html;
 };
 
 export const withEffects = (Component: any) => {
@@ -86,21 +99,39 @@ const getItems = () =>
         ElementWithDataset
     >;
 
+const processNode = (
+    node: ElementWithDataset,
+    id?: string,
+    windowScrollTop?: number,
+    windowBottom?: number,
+) => {
+    if (!id) {
+        id = node.dataset.effectsNodeId;
+    }
+
+    if (windowScrollTop === undefined) {
+        windowScrollTop = window.scrollY || window.pageYOffset;
+    }
+
+    if (windowBottom === undefined) {
+        windowBottom = window.innerHeight + windowScrollTop;
+    }
+
+    const itemRect = node.getBoundingClientRect();
+    const itemTop = itemRect.top + windowScrollTop;
+    if (itemTop + Math.min(itemRect.height * 0.2, 200) < windowBottom) {
+        node.classList.remove('effects-node');
+        eventEmitter.emit('effect.run', [id]);
+    }
+};
+
 const onWindowUpdate = throttle(200, () => {
     const windowScrollTop = window.scrollY || window.pageYOffset;
     const windowBottom = window.innerHeight + windowScrollTop;
 
     const items = getItems();
     for (let i = 0; i < items.length; i++) {
-        const item = items[i];
-        const id = item.dataset.effectsNodeId;
-
-        const itemRect = item.getBoundingClientRect();
-        const itemTop = itemRect.top + windowScrollTop;
-        if (itemTop + Math.min(itemRect.height * 0.2, 200) < windowBottom) {
-            item.classList.remove('effects-node');
-            eventEmitter.emit('effect.run', [id]);
-        }
+        processNode(items[i], undefined, windowScrollTop, windowBottom);
     }
 });
 
@@ -108,34 +139,43 @@ export const start = () => {
     window.addEventListener('resize', onWindowUpdate, true);
     window.addEventListener('scroll', onWindowUpdate, true);
 
-    const firstPass = () => {
-        if (typeof window !== 'undefined') {
-            const items = getItems();
-            // @ts-ignore
-            window._effectIds = [];
-            items.forEach(item => {
-                // @ts-ignore
-                window._effectIds.push(item.dataset.effectsNodeId);
-            });
+    eventEmitter.on('element.ready', ([id]: string[]) => {
+        const node = document.querySelector(
+            `[data-effects-node-id="${id}"]`,
+        ) as ElementWithDataset;
+        if (node) {
+            processNode(node);
         }
+    });
 
-        const onReactReady = debounce(100, () => {
-            eventEmitter.off('react.ready', onReactReady);
-            onWindowUpdate();
-        });
-
-        eventEmitter.on('react.ready', onReactReady);
-    };
-
-    if (document.readyState != 'loading') {
-        firstPass();
-    } else {
-        const onLoad = () => {
-            firstPass();
-            document.removeEventListener('DOMContentLoaded', onLoad);
-        };
-        document.addEventListener('DOMContentLoaded', onLoad);
-    }
+    // const firstPass = () => {
+    //     // if (typeof window !== 'undefined') {
+    //     //     const items = getItems();
+    //     //     // @ts-ignore
+    //     //     window._effectIds = [];
+    //     //     items.forEach(item => {
+    //     //         // @ts-ignore
+    //     //         window._effectIds.push(item.dataset.effectsNodeId);
+    //     //     });
+    //     // }
+    //
+    //     const onReactReady = debounce(100, () => {
+    //         eventEmitter.off('react.ready', onReactReady);
+    //         onWindowUpdate();
+    //     });
+    //
+    //     eventEmitter.on('react.ready', onReactReady);
+    // };
+    //
+    // if (document.readyState != 'loading') {
+    //     firstPass();
+    // } else {
+    //     const onLoad = () => {
+    //         firstPass();
+    //         document.removeEventListener('DOMContentLoaded', onLoad);
+    //     };
+    //     document.addEventListener('DOMContentLoaded', onLoad);
+    // }
 };
 
 export const stop = () => {
