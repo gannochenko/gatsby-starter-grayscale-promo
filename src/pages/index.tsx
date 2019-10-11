@@ -48,7 +48,7 @@ const HomePage: FunctionComponent<Props> = ({ data }) => {
     const { allMarkdownRemark: { nodes = [] } = {} } = data;
     return (
         <Layout>
-            <SEO title="Welcome!" keywords={['']} />
+            <SEO title="Home" keywords={['']} />
             <Intro />
             {nodes.map(node => {
                 const Widget = getWidget(node);
@@ -61,30 +61,6 @@ const HomePage: FunctionComponent<Props> = ({ data }) => {
                     />
                 );
             })}
-            <AccentBlock
-                fontSize="small"
-                html={
-                    '<p>На данный момент у нас собрано около 40% средств, однако этого недостаточно. Мы будем очень рады вашим пожертвованиям.</p>'
-                }
-            />
-            <AccentBlock
-                fontSize="standard"
-                html={
-                    '<p>На данный момент у нас собрано около 40% средств, однако этого недостаточно. Мы будем очень рады вашим пожертвованиям.</p>'
-                }
-            />
-            <AccentBlock
-                fontSize="medium"
-                html={
-                    '<p>На данный момент у нас собрано около 40% средств, однако этого недостаточно. Мы будем очень рады вашим пожертвованиям.</p>'
-                }
-            />
-            <AccentBlock
-                fontSize="large"
-                html={
-                    '<p>На данный момент у нас собрано около 40% средств, однако этого недостаточно. Мы будем очень рады вашим пожертвованиям.</p>'
-                }
-            />
         </Layout>
     );
 };

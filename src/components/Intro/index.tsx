@@ -34,8 +34,8 @@ export const Intro: FunctionComponent<{}> = () => {
                         />
                         <ImageOverlay />
                         <Data className="intro-data">
-                            <Title>Every day we loose thousands of trees</Title>
-                            <SubTitle>We need to plant more trees!</SubTitle>
+                            <Title>Greyscale promo</Title>
+                            <SubTitle>Gatsby starter</SubTitle>
                         </Data>
                         <Arrow onClick={() => scrollWindow()} />
                     </Container>
