@@ -5,6 +5,7 @@ import { fgColor } from '@bucket-of-bolts/styled-companion';
 export const GlobalStyle = createGlobalStyle`
     @import url('https://fonts.googleapis.com/css?family=Montserrat');
     @import url('https://fonts.googleapis.com/css?family=Roboto:300,400');
+    @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
     html {
         font-size: 20px;

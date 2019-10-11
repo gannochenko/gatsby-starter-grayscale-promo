@@ -3,14 +3,11 @@ import Img from 'gatsby-image';
 import {
     absoluteCover,
     central,
-    backgroundCover,
-    rectangle,
-    op,
     bouncedAnimation,
+    align,
+    icon,
 } from '@bucket-of-bolts/styled-companion';
 import { media } from '../../style';
-import imgArrow from '../../../static/assets/arrow-down.svg';
-import { align } from '@bucket-of-bolts/styled-companion/build';
 
 export const Container = styled.div`
     position: relative;
@@ -43,25 +40,26 @@ export const Data = styled.div`
 `;
 
 export const Arrow = styled.div`
-  position: absolute;
-  left: calc(50% - ${op('2rem', (x: number) => (x * 0.7) / 2)});
+    ${icon('keyboard_arrow_down')};
+    position: absolute;
+    left: calc(50% - 2rem);
 
-  cursor: pointer;
-  bottom: 2.5rem;
-  ${rectangle('72px', '53px', 0.7)}
-  ${backgroundCover(imgArrow)}
+    cursor: pointer;
+    bottom: 2.5rem;
+    color: white;
+    font-size: 3rem;
 
-  animation-name: ${bouncedAnimation};
-  animation-duration: 1s;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-  animation-timing-function: ease-in;
+    animation-name: ${bouncedAnimation};
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in;
 
-  display: none;
-  ${media({
-      lg: 'display: block;',
-      md: 'display: block;',
-  })}
+    display: none;
+    ${media({
+        lg: 'display: block;',
+        md: 'display: block;',
+    })}
 `;
 
 export const Title = styled.h1`
