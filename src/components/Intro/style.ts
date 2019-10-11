@@ -83,7 +83,8 @@ export const SubTitle = styled.div`
     text-align: center;
     font-size: 1.3rem;
     max-width: 60%;
-    margin-top: 1rem;
+    margin: 1rem 0 0 0;
+    padding: 0;
     ${media({
         xs: `
         font-size: 1rem;
