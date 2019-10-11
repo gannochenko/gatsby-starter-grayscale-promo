@@ -2,6 +2,8 @@
 id: 'but'
 sort: 2
 fontSize: standard
+effect: fade-slide-top
+effectTimeout: 0
 ---
 
 **Вопрос:** Есть ли сейчас смысл спасать объект, ведь он в таком ужасном состоянии?

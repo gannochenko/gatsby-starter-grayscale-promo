@@ -1,8 +1,8 @@
 ---
 id: 'three-pics'
 sort: 4
-effect:
-  - sdf
+effect: fade-slide-top
+effectTimeout: 0
 graphics:
   - author: Anholt
     image: /assets/38282342_2492312050995334_7976049543378632704_o.jpg

@@ -84,13 +84,7 @@ export const withEffects = (Component: any) => {
         return (
             <Effect effectTimeout={props.effectTimeout || 0}>
                 {(effectProps: EffectProps) => {
-                    return (
-                        <Component
-                            {...props}
-                            {...effectProps}
-                            effectProps={effectProps}
-                        />
-                    );
+                    return <Component {...props} {...effectProps} />;
                 }}
             </Effect>
         );

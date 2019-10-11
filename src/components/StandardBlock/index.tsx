@@ -12,17 +12,18 @@ import {
 } from './style';
 import { Props } from './type';
 import { Copyright } from '../Copyright';
+import { withEffects } from '../../lib/effects';
 
-export const StandardBlock: FunctionComponent<Props> = ({
-    html,
-    fontSize = 'standard',
-    graphics = [],
-}) => {
+const StandardBlockComponent: FunctionComponent<Props> = props => {
+    let { fontSize = 'standard', graphics = [] } = props;
+
+    const { html } = props;
+
     graphics = graphics || [];
     fontSize = fontSize || 'standard';
 
     return (
-        <StandardBlockContainer>
+        <StandardBlockContainer {...props}>
             {!!html && (
                 <Inner
                     dangerouslySetInnerHTML={{ __html: html }}
@@ -56,3 +57,5 @@ export const StandardBlock: FunctionComponent<Props> = ({
         </StandardBlockContainer>
     );
 };
+
+export const StandardBlock = withEffects(StandardBlockComponent);

@@ -60,10 +60,7 @@ const HomePage: FunctionComponent<Props> = ({ data }) => {
                     <Widget
                         key={node.id}
                         html={node.html}
-                        fontSize={node.frontmatter.fontSize}
-                        graphics={node.frontmatter.graphics}
-                        effect={node.frontmatter.effect}
-                        effectTimeout={node.frontmatter.effectTimeout}
+                        {...node.frontmatter}
                     />
                 );
             })}

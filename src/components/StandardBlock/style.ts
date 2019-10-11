@@ -2,12 +2,16 @@ import styled from 'styled-components';
 import { align } from '@bucket-of-bolts/styled-companion/build';
 import Img from 'gatsby-image';
 import { media, grid, cell, withTheme } from '../../style';
+import { effect } from '../../lib/effects';
 
 export const StandardBlockContainer = styled.div`
     margin: 3rem 1rem;
     ${media({ xs: 'margin: 2rem 0rem;' })}
     ${align('center', 'center')};
     position: relative;
+
+    // @ts-ignore
+    ${props => effect(props)}
 `;
 
 export const Inner = withTheme(styled.div`

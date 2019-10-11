@@ -2,6 +2,8 @@
 id: intro
 sort: 1
 fontSize: standard
+effect: fade-slide-top
+effectTimeout: 0
 ---
 
 Амбар в поселке Подлипово <span style="font-weight: 400;">Правдинского района Калининградской области</span> радовал глаз туристов и водителей проезжающих авто с XIX века и до 2018 года.

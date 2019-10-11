@@ -4,13 +4,11 @@ import { withEffects } from '../../lib/effects';
 import { AccentBlockContainer, Inner, Dash } from './style';
 import { Props } from './type';
 
-const AccentBlockComponent: FunctionComponent<Props> = ({
-    html,
-    fontSize = 'large',
-    effectProps,
-}) => {
+const AccentBlockComponent: FunctionComponent<Props> = props => {
+    const { html, fontSize = 'large' } = props;
+
     return (
-        <AccentBlockContainer fontSize={fontSize} {...effectProps}>
+        <AccentBlockContainer fontSize={fontSize} {...props}>
             <Dash />
             <Inner dangerouslySetInnerHTML={{ __html: html }} />
             <Dash bottom />
