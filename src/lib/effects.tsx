@@ -158,21 +158,26 @@ export const stop = () => {
 };
 
 export const effect = ({
-    effect = 'fade-slide-left',
+    effect = 'fade-slide-top',
     runEffect = false,
 }: EffectProperties) => {
+    let start = 'opacity: 0; transform: translateY(-20px);';
+    let end = 'opacity: 1; transform: translateY(0);';
+
+    if (effect === 'fade-slide-left') {
+        start = 'opacity: 0; transform: translateX(-20px);';
+        end = 'opacity: 1; transform: translateX(0);';
+    } else if (effect === 'fade-slide-right') {
+        start = 'opacity: 0; transform: translateX(20px);';
+        end = 'opacity: 1; transform: translateX(0);';
+    } else if (effect === 'fade-slide-bottom') {
+        start = 'opacity: 0; transform: translateY(20px);';
+        end = 'opacity: 1; transform: translateY(0);';
+    }
+
     return `
-        opacity: 0;
-        transform: translateY(-20px);
         transition: all ease-out 300ms;
-        
-        ${
-            runEffect
-                ? `
-            opacity: 1;
-            transform: translateY(0);
-        `
-                : ''
-        }
+        ${start};
+        ${runEffect ? end : ''}
     `;
 };

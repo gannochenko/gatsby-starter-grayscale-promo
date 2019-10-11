@@ -40,7 +40,7 @@ export const Data = styled.div`
     position: relative;
 `;
 
-export const Arrow = styled.div`
+export const Arrow = withEffects(styled.div`
     ${icon('keyboard_arrow_down')};
     position: absolute;
     left: calc(50% - 2rem);
@@ -61,7 +61,10 @@ export const Arrow = styled.div`
         lg: 'display: block;',
         md: 'display: block;',
     })}
-`;
+
+    // @ts-ignore
+    ${props => effect(props)}
+`);
 
 export const Title = withEffects(styled.h1`
     font-size: 4rem;
@@ -76,9 +79,6 @@ export const Title = withEffects(styled.h1`
     color: white;
     text-align: center;
     margin: 0;
-
-// @ts-ignore
-    ${props => console.log(props)}
 
     // @ts-ignore
     ${props => effect(props)}

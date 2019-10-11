@@ -34,8 +34,12 @@ export const Intro: FunctionComponent<{}> = () => {
                         />
                         <ImageOverlay />
                         <Data className="intro-data">
-                            <Title>Greyscale promo</Title>
-                            <SubTitle>Gatsby starter</SubTitle>
+                            <Title effect="fade-slide-left">
+                                Greyscale promo
+                            </Title>
+                            <SubTitle effect="fade-slide-bottom">
+                                Gatsby starter
+                            </SubTitle>
                         </Data>
                         <Arrow onClick={() => scrollWindow()} />
                     </Container>
