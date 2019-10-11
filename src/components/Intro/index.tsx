@@ -24,6 +24,8 @@ export const Intro: FunctionComponent<{}> = () => {
         }
     };
 
+    const timeoutBase = 500;
+
     return (
         <Query>
             {data => (
@@ -34,14 +36,23 @@ export const Intro: FunctionComponent<{}> = () => {
                         />
                         <ImageOverlay />
                         <Data className="intro-data">
-                            <Title effect="fade-slide-left">
+                            <Title
+                                effect="fade-slide-left"
+                                effectTimeout={timeoutBase}
+                            >
                                 Greyscale promo
                             </Title>
-                            <SubTitle effect="fade-slide-bottom">
+                            <SubTitle
+                                effect="fade-slide-bottom"
+                                effectTimeout={timeoutBase + 500}
+                            >
                                 Gatsby starter
                             </SubTitle>
                         </Data>
-                        <Arrow onClick={() => scrollWindow()} />
+                        <Arrow
+                            effectTimeout={timeoutBase + 1500}
+                            onClick={() => scrollWindow()}
+                        />
                     </Container>
                     <Copyright author="niko photos" source="Unsplash" />
                 </>

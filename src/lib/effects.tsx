@@ -22,6 +22,7 @@ interface EffectProperties {
         | 'fade-slide-right'
         | 'fade-slide-top'
         | 'fade-slide-bottom';
+    effectTimeout?: number;
     runEffect?: boolean;
 }
 export const eventEmitter = new EventEmitter();
@@ -35,7 +36,10 @@ const IDGenerator = function*() {
 
 export const idGenerator = IDGenerator();
 
-const Effect: FunctionComponent<{ children: any }> = ({ children }) => {
+const Effect: FunctionComponent<{ children: any; effectTimeout?: number }> = ({
+    children,
+    effectTimeout = 0,
+}) => {
     const nodeId = useMemo(() => {
         return idGenerator.next().value;
     }, []);
@@ -43,7 +47,7 @@ const Effect: FunctionComponent<{ children: any }> = ({ children }) => {
 
     const onEventFire = (id: string) => {
         if (id.toString() === nodeId.toString()) {
-            setRunEffect(true);
+            setTimeout(() => setRunEffect(true), effectTimeout);
             eventEmitter.off(EVENT_EFFECT_RUN, onEventFire);
         }
     };
@@ -76,7 +80,7 @@ const Effect: FunctionComponent<{ children: any }> = ({ children }) => {
 export const withEffects = (Component: any) => {
     const WithEffects = (props: ObjectLiteral) => {
         return (
-            <Effect>
+            <Effect effectTimeout={props.effectTimeout || 0}>
                 {(effectProps: EffectProps) => {
                     return (
                         <Component
