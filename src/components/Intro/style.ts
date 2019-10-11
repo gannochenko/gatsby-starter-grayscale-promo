@@ -8,6 +8,7 @@ import {
     icon,
 } from '@bucket-of-bolts/styled-companion';
 import { media } from '../../style';
+import { withEffects, effect } from '../../lib/effects';
 
 export const Container = styled.div`
     position: relative;
@@ -62,7 +63,7 @@ export const Arrow = styled.div`
     })}
 `;
 
-export const Title = styled.h1`
+export const Title = withEffects(styled.h1`
     font-size: 4rem;
     font-weight: 600;
     letter-spacing: 0.4rem;
@@ -75,9 +76,15 @@ export const Title = styled.h1`
     color: white;
     text-align: center;
     margin: 0;
-`;
 
-export const SubTitle = styled.div`
+// @ts-ignore
+    ${props => console.log(props)}
+
+    // @ts-ignore
+    ${props => effect(props)}
+`);
+
+export const SubTitle = withEffects(styled.div`
     color: #fff;
     position: relative;
     text-align: center;
@@ -90,4 +97,7 @@ export const SubTitle = styled.div`
         font-size: 1rem;
     `,
     })}
-`;
+
+    // @ts-ignore
+    ${props => effect(props)}
+`);

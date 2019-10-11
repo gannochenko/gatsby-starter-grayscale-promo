@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { align } from '@bucket-of-bolts/styled-companion/build';
 import { media, withTheme } from '../../style';
+import { effect } from '../../lib/effects';
 
 export const AccentBlockContainer = withTheme(styled.div`
     margin: 3rem 1rem;
@@ -10,18 +11,8 @@ export const AccentBlockContainer = withTheme(styled.div`
     // @ts-ignore
     font-size: ${props => props.theme.font[props.fontSize]};
 
-    opacity: 0;
-    transform: translateY(-20px);
-    transition: all ease-out 300ms;
-
-    ${props =>
-        // @ts-ignore
-        props.runEffect
-            ? `
-        opacity: 1;
-        transform: translateY(0);
-    `
-            : ''}
+    // @ts-ignore
+    ${props => effect(props)}
 `);
 
 export const Inner = styled.div`

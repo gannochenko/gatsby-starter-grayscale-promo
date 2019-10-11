@@ -4,6 +4,10 @@ import { throttle } from 'throttle-debounce';
 
 import { ObjectLiteral } from '../type';
 
+const EVENT_EFFECT_RUN = 'effect.run';
+const EVENT_ELEMENT_READY = 'element.ready';
+const EFFECT_DATA_ATTRIBUTE = 'data-effects-node-id';
+
 type ElementWithDataset = Element & { dataset: { effectsNodeId: string } };
 
 export interface EffectProps {
@@ -12,6 +16,14 @@ export interface EffectProps {
     runEffect: boolean;
 }
 
+interface EffectProperties {
+    effect?:
+        | 'fade-slide-left'
+        | 'fade-slide-right'
+        | 'fade-slide-top'
+        | 'fade-slide-bottom';
+    runEffect?: boolean;
+}
 export const eventEmitter = new EventEmitter();
 const IDGenerator = function*() {
     let i = 0;
@@ -22,8 +34,6 @@ const IDGenerator = function*() {
 };
 
 export const idGenerator = IDGenerator();
-
-const EVENT_EFFECT_RUN = 'effect.run';
 
 const Effect: FunctionComponent<{ children: any }> = ({ children }) => {
     const nodeId = useMemo(() => {
@@ -47,19 +57,17 @@ const Effect: FunctionComponent<{ children: any }> = ({ children }) => {
 
     const effectProps = useMemo(
         () => ({
-            'data-effects-node-id': nodeId,
+            [EFFECT_DATA_ATTRIBUTE]: nodeId,
             className: 'effects-node',
             runEffect,
         }),
         [runEffect, nodeId],
     );
 
-    const html = children({
-        effectProps,
-    });
+    const html = children(effectProps);
 
     useEffect(() => {
-        setTimeout(() => eventEmitter.emit('element.ready', [nodeId]), 100);
+        setTimeout(() => eventEmitter.emit(EVENT_ELEMENT_READY, [nodeId]), 100);
     }, []);
 
     return html;
@@ -69,9 +77,15 @@ export const withEffects = (Component: any) => {
     const WithEffects = (props: ObjectLiteral) => {
         return (
             <Effect>
-                {(effectProps: ObjectLiteral<EffectProps>) => (
-                    <Component {...props} {...effectProps} />
-                )}
+                {(effectProps: EffectProps) => {
+                    return (
+                        <Component
+                            {...props}
+                            {...effectProps}
+                            effectProps={effectProps}
+                        />
+                    );
+                }}
             </Effect>
         );
     };
@@ -128,9 +142,9 @@ export const start = () => {
     window.addEventListener('resize', onWindowUpdate, true);
     window.addEventListener('scroll', onWindowUpdate, true);
 
-    eventEmitter.on('element.ready', ([id]: string[]) => {
+    eventEmitter.on(EVENT_ELEMENT_READY, ([id]: string[]) => {
         const node = document.querySelector(
-            `[data-effects-node-id="${id}"]`,
+            `[${EFFECT_DATA_ATTRIBUTE}="${id}"]`,
         ) as ElementWithDataset;
         if (node) {
             processNode(node);
@@ -141,4 +155,24 @@ export const start = () => {
 export const stop = () => {
     window.removeEventListener('resize', onWindowUpdate);
     window.removeEventListener('scroll', onWindowUpdate);
+};
+
+export const effect = ({
+    effect = 'fade-slide-left',
+    runEffect = false,
+}: EffectProperties) => {
+    return `
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: all ease-out 300ms;
+        
+        ${
+            runEffect
+                ? `
+            opacity: 1;
+            transform: translateY(0);
+        `
+                : ''
+        }
+    `;
 };
