@@ -16,9 +16,9 @@ export const Intro: FunctionComponent<{}> = () => {
     const scrollWindow = () => {
         const data = document.querySelector('.intro-data');
         if (data) {
+            const windowScrollTop = window.scrollY || window.pageYOffset;
             const dataRect = data.getBoundingClientRect();
-            console.log(dataRect.top + dataRect.height);
-            animateScrollTo(dataRect.top + dataRect.height, {
+            animateScrollTo(dataRect.top + dataRect.height + windowScrollTop, {
                 speed: 1000,
             });
         }
