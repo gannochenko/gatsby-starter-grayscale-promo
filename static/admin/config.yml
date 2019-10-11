@@ -59,6 +59,11 @@ collections:
                       value: 'fade-slide-bottom',
                   }
             required: false
+          - name: effectTimeout
+            label: Effect timeout
+            widget: number
+            valueType: int
+            default: 0
           - label: Font size
             name: fontSize
             widget: select

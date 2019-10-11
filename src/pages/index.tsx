@@ -8,6 +8,7 @@ import { Intro } from '../components/Intro';
 import { StandardBlock } from '../components/StandardBlock';
 import { AccentBlock } from '../components/AccentBlock';
 import { FontSize } from '../type';
+import { EffectsSupported } from '../lib/effects';
 
 interface Graphics {
     source?: string;
@@ -22,6 +23,8 @@ interface Node {
         graphics: Graphics[];
         widget: 'StandardBlock' | 'AccentBlock' | 'QuoteBlock';
         fontSize: FontSize;
+        effect?: EffectsSupported;
+        effectTimeout?: number;
     };
 }
 
@@ -53,11 +56,14 @@ const HomePage: FunctionComponent<Props> = ({ data }) => {
             {nodes.map(node => {
                 const Widget = getWidget(node);
                 return (
+                    // @ts-ignore
                     <Widget
                         key={node.id}
                         html={node.html}
                         fontSize={node.frontmatter.fontSize}
                         graphics={node.frontmatter.graphics}
+                        effect={node.frontmatter.effect}
+                        effectTimeout={node.frontmatter.effectTimeout}
                     />
                 );
             })}
@@ -85,6 +91,8 @@ export const query = graphql`
                     }
                     widget
                     fontSize
+                    effect
+                    effectTimeout
                 }
             }
         }

@@ -16,12 +16,14 @@ export interface EffectProps {
     runEffect: boolean;
 }
 
-interface EffectProperties {
-    effect?:
-        | 'fade-slide-left'
-        | 'fade-slide-right'
-        | 'fade-slide-top'
-        | 'fade-slide-bottom';
+export type EffectsSupported =
+    | 'fade-slide-left'
+    | 'fade-slide-right'
+    | 'fade-slide-top'
+    | 'fade-slide-bottom';
+
+export interface EffectProperties {
+    effect?: EffectsSupported;
     effectTimeout?: number;
     runEffect?: boolean;
 }

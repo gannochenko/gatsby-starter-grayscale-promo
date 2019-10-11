@@ -40,7 +40,7 @@ export const Intro: FunctionComponent<{}> = () => {
                                 effect="fade-slide-left"
                                 effectTimeout={timeoutBase}
                             >
-                                Greyscale promo
+                                Grayscale promo
                             </Title>
                             <SubTitle
                                 effect="fade-slide-bottom"
