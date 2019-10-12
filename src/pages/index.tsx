@@ -85,6 +85,7 @@ export const query = graphql`
                         }
                         author
                         source
+                        sourceText
                     }
                     widget
                     fontSize

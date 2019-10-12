@@ -7,6 +7,7 @@ export interface Props {
     graphics: {
         image: any;
         source?: string;
+        sourceText?: string;
         author?: string;
     }[];
     effectProps: EffectProperties;
