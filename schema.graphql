@@ -899,6 +899,7 @@ enum FileFieldsEnum {
   childMarkdownRemark___frontmatter___effectTimeout
   childMarkdownRemark___frontmatter___graphics
   childMarkdownRemark___frontmatter___graphics___author
+  childMarkdownRemark___frontmatter___graphics___sourceText
   childMarkdownRemark___frontmatter___graphics___source
   childMarkdownRemark___frontmatter___widget
   childMarkdownRemark___excerpt @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
@@ -1589,6 +1590,7 @@ enum MarkdownRemarkFieldsEnum {
   frontmatter___graphics___image___publicURL
   frontmatter___graphics___image___id
   frontmatter___graphics___image___children
+  frontmatter___graphics___sourceText
   frontmatter___graphics___source
   frontmatter___widget
   excerpt @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
@@ -1735,12 +1737,14 @@ input MarkdownRemarkFrontmatterFilterInput {
 type MarkdownRemarkFrontmatterGraphics {
   author: String
   image: File
+  sourceText: String
   source: String
 }
 
 input MarkdownRemarkFrontmatterGraphicsFilterInput {
   author: StringQueryOperatorInput
   image: FileFilterInput
+  sourceText: StringQueryOperatorInput
   source: StringQueryOperatorInput
 }
 
