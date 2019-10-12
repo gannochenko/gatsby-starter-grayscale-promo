@@ -1,10 +1,12 @@
 ---
 id: lorem
-sort: 2
+sort: 2.5
 fontSize: standard
 effect: fade-slide-top
 effectTimeout: 0
 ---
+
+Just an example of how the markdown is formatted:
 
 **Lorem** ipsum dolor sit amet, consectetur adipiscing elit. Praesent vestibulum vitae risus ac laoreet. Vestibulum suscipit ut odio eu bibendum. Nullam elementum varius velit at ultrices. Nam congue semper quam vitae rutrum. Nam a neque nec leo gravida porta a fringilla arcu. Nulla in libero leo. Nulla a mauris sed nisi tincidunt elementum. Praesent pellentesque est est, et placerat augue elementum egestas. Cras maximus nisl libero. Nulla eget tellus vehicula, pulvinar diam ac, varius urna.
 

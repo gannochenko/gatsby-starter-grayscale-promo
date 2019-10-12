@@ -1,9 +1,9 @@
 ---
-id: please_donate
+id: accented
 sort: 5
 widget: AccentBlock
 effect: fade-slide-top
 effectTimeout: 0
 fontSize: standard
 ---
-Please donate!
+We support different design widgets as well!
