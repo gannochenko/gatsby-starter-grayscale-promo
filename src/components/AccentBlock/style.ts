@@ -4,7 +4,7 @@ import { media, withTheme } from '../../style';
 import { effect } from '../../lib/effects';
 
 export const AccentBlockContainer = withTheme(styled.div`
-    margin: 3rem 1rem;
+    margin: 2rem 1rem;
     ${media({ xs: 'margin: 2rem 0rem;' })}
     ${align('center', 'center', 'column')};
     position: relative;

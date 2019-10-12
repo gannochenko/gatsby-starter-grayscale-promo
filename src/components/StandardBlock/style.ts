@@ -4,15 +4,18 @@ import Img from 'gatsby-image';
 import { media, grid, cell, withTheme } from '../../style';
 import { effect } from '../../lib/effects';
 
-export const StandardBlockContainer = styled.div`
-    margin: 3rem 1rem;
+export const StandardBlockContainer = withTheme(styled.div`
+    margin: 2rem 1rem;
     ${media({ xs: 'margin: 2rem 0rem;' })}
-    ${align('center', 'center')};
+    ${align('center', 'center', 'column')};
     position: relative;
 
     // @ts-ignore
+    font-size: ${props => props.theme.font[props.fontSize]};
+
+    // @ts-ignore
     ${props => effect(props)}
-`;
+`);
 
 export const Inner = withTheme(styled.div`
     max-width: 60%;

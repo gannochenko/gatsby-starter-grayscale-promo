@@ -46,7 +46,7 @@ export const Intro: FunctionComponent<{}> = () => {
                                 effect="fade-slide-bottom"
                                 effectTimeout={timeoutBase + 500}
                             >
-                                Gatsby starter
+                                GatsbyJS starter
                             </SubTitle>
                         </Data>
                         <Arrow
