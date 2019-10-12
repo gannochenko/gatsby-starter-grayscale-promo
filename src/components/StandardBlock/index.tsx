@@ -17,10 +17,12 @@ import { withEffects } from '../../lib/effects';
 const StandardBlockComponent: FunctionComponent<Props> = props => {
     let { fontSize = 'standard', graphics = [] } = props;
 
-    const { html } = props;
+    const { html, effectTimeout } = props;
 
     graphics = graphics || [];
     fontSize = fontSize || 'standard';
+
+    let timeout = effectTimeout || 0;
 
     return (
         <StandardBlockContainer {...props}>
@@ -43,14 +45,21 @@ const StandardBlockComponent: FunctionComponent<Props> = props => {
             {graphics.length > 1 && (
                 <ImageGallery>
                     <ImageGalleryGrid>
-                        {graphics.map((item, key) => (
-                            <GalleryItem key={key}>
-                                <Image
-                                    sizes={item.image.childImageSharp.fluid}
-                                />
-                                <Copyright {...item} />
-                            </GalleryItem>
-                        ))}
+                        {graphics.map((item, key) => {
+                            timeout += 200;
+                            return (
+                                <GalleryItem
+                                    key={key}
+                                    effect="fade-slide-top"
+                                    effectTimeout={timeout}
+                                >
+                                    <Image
+                                        sizes={item.image.childImageSharp.fluid}
+                                    />
+                                    <Copyright {...item} />
+                                </GalleryItem>
+                            );
+                        })}
                     </ImageGalleryGrid>
                 </ImageGallery>
             )}

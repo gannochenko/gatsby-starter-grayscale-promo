@@ -1,5 +1,4 @@
 import { FontSize } from '../../type';
-import { EffectProperties } from '../../lib/effects';
 
 export interface Props {
     html: string;
@@ -10,5 +9,6 @@ export interface Props {
         sourceText?: string;
         author?: string;
     }[];
-    effectProps: EffectProperties;
+    effect?: string;
+    effectTimeout?: number;
 }

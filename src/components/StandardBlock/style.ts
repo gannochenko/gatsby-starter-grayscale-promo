@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { align } from '@bucket-of-bolts/styled-companion/build';
 import Img from 'gatsby-image';
 import { media, grid, cell, withTheme } from '../../style';
-import { effect } from '../../lib/effects';
+import { effect, withEffects } from '../../lib/effects';
 
 export const StandardBlockContainer = withTheme(styled.div`
     margin: 2rem 1rem;
@@ -53,6 +53,9 @@ export const ImageGalleryGrid = styled.div`
     ${grid({ gutters: { all: '1rem', xs: '0.5rem' } })};
 `;
 
-export const GalleryItem = styled.div`
+export const GalleryItem = withEffects(styled.div`
     ${cell({ xs: 12, all: 4 })};
-`;
+
+    // @ts-ignore
+    ${props => effect(props)}
+`);
