@@ -54,7 +54,11 @@ export const Intro: FunctionComponent<{}> = () => {
                             onClick={() => scrollWindow()}
                         />
                     </Container>
-                    <Copyright author="niko photos" source="Unsplash" />
+                    <Copyright
+                        author="niko photos"
+                        source="https://unsplash.com/"
+                        sourceText="Unsplash"
+                    />
                 </>
             )}
         </Query>

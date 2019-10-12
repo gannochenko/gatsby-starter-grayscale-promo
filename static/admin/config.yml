@@ -39,6 +39,10 @@ collections:
                   label: 'Source'
                   widget: string
                   required: false
+                - name: sourceText
+                  label: 'Source text'
+                  widget: string
+                  required: false
           - label: Widget
             name: widget
             widget: select
