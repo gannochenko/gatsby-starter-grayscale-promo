@@ -55,8 +55,8 @@ export const Intro: FunctionComponent<{}> = () => {
                         />
                     </Container>
                     <Copyright
-                        author="niko photos"
-                        source="https://unsplash.com/"
+                        author="Caspar Camille Rubin"
+                        source="https://unsplash.com/photos/fPkvU7RDmCo"
                         sourceText="Unsplash"
                     />
                 </>
