@@ -73,7 +73,7 @@ This is a nice GatsbyJS starter I made after another static website.
 
 * [GatsbyJS](https://www.gatsbyjs.org/) - rock-n-roll!
 * [Styled Components](https://www.styled-components.com/) - correct support, no creepy FOUC there
-* [TypeScript](http://www.typescriptlang.org/) - everything (well, almost everything is type-safe)
+* [TypeScript](http://www.typescriptlang.org/) - everything (well, almost everything) is type-safe
 * [NetlifyCMS](https://www.netlifycms.org/) - manage your content through an awesome GUI
 
 <!-- GETTING STARTED -->
