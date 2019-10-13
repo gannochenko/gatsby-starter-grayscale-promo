@@ -63,23 +63,21 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
+<!--
 [![Preview Screen Shot][product-screenshot]](https://example.com)
+-->
 
-
+This is a nice GatsbyJS starter I made after another static website.
 
 ### Built With
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
-* [Laravel](https://laravel.com)
 
-
+* [GatsbyJS](https://www.gatsbyjs.org/) - rock-n-roll!
+* [Styled Components](https://www.styled-components.com/) - correct support, no creepy FOUC there
+* [TypeScript](http://www.typescriptlang.org/) - everything (well, almost everything is type-safe)
+* [NetlifyCMS](https://www.netlifycms.org/) - manage your content through an awesome GUI
 
 <!-- GETTING STARTED -->
 ## Getting Started
-
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
@@ -105,23 +103,14 @@ npm install
 const API_KEY = 'ENTER YOUR API';
 ```
 
-
-
-<!-- USAGE EXAMPLES -->
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-
-
 <!-- ROADMAP -->
 ## Roadmap
 
+* better TypeScript support
+* analytics support
+* page auto-generation support
+
 See the [open issues](https://github.com/awesome1888/grayscale-promo-gatsbyjs-starter/issues) for a list of proposed features (and known issues).
-
-
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -134,41 +123,25 @@ Contributions are what make the open source community such an amazing place to b
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-
-
 <!-- LICENSE -->
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
-
-
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+Sergei Gannochenko - [Linkedin](https://www.linkedin.com/in/sergey-gannochenko/)
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
-
-
+Project Link: [https://github.com/awesome1888/grayscale-promo-gatsbyjs-starter](https://github.com/awesome1888/grayscale-promo-gatsbyjs-starter)
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Img Shields](https://shields.io)
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Pages](https://pages.github.com)
-* [Animate.css](https://daneden.github.io/animate.css)
-* [Loaders.css](https://connoratherton.com/loaders)
-* [Slick Carousel](https://kenwheeler.github.io/slick)
-* [Smooth Scroll](https://github.com/cferdinandi/smooth-scroll)
-* [Sticky Kit](http://leafo.net/sticky-kit)
-* [JVectorMap](http://jvectormap.com)
-* [Font Awesome](https://fontawesome.com)
 
+Special thanks to:
 
-
-
+* [Another cool GatsbyJS starter I took some ideas from](https://github.com/damassi/gatsby-starter-typescript-rebass-netlifycms)
+* [Unsplash](https://unsplash.com)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
