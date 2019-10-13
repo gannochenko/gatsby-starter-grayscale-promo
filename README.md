@@ -23,17 +23,17 @@
   </a>
   -->
 
-  <h3 align="center">&laquo;Save trees!&raquo; &mdash; GatsbyJS starter</h3>
+  <h3 align="center">Grayscale promo &mdash; GatsbyJS starter</h3>
 
   <p align="center">
-    An awesome GatsbyJS template to quickly prepare a smiple landing!
+    An awesome GatsbyJS template to build a smiple landing fast
     <!--
     <br />
     <a href="https://github.com/awesome1888/grayscale-promo-gatsbyjs-starter"><strong>Explore the docs »</strong></a>
     -->
     <br />
     <br />
-    <a href="https://awesome1888.github.io/grayscale-promo-gatsbyjs-starter/">View Demo</a>
+    <a href="https://gatsby-starter-grayscale-promo.netlify.com/">View Demo</a>
     ·
     <a href="https://github.com/awesome1888/grayscale-promo-gatsbyjs-starter/issues">Report Bug</a>
     ·
@@ -63,18 +63,9 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Preview Screen Shot][product-screenshot]](https://example.com)
 
-There are many great README templates available on GitHub, however, I didn't find one that really suit my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need.
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should element DRY principles to the rest of your life :smile:
-
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue.
-
-A list of commonly used resources that I find helpful are listed in the acknowledgements.
 
 ### Built With
 This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
