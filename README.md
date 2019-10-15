@@ -12,7 +12,7 @@
 [![Language][language-shield]][language-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/ca134944-33b3-41ac-8d12-048fc8c20637/deploy-status)](https://app.netlify.com/sites/festive-villani-316b3c/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ca134944-33b3-41ac-8d12-048fc8c20637/deploy-status)](https://app.netlify.com/sites/gatsby-starter-grayscale-promo/deploys)
 
 <!-- PROJECT LOGO -->
 <br />
@@ -81,27 +81,30 @@ This is a nice GatsbyJS starter I made after another static website.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-```sh
-npm install npm@latest -g
-```
+You should have [nodejs](https://nodesource.com/blog/installing-node-js-tutorial-using-nvm-on-mac-os-x-and-ubuntu/), [yarn](https://yarnpkg.com/lang/en/docs/install/#mac-stable) and [gatsby](https://www.gatsbyjs.org/docs/quick-start/) installed.
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+* Clone the repository into your local folder
 ```sh
-git clone https:://github.com/your_username_/Project-Name.git
+gatsby new local-folder awesome1888/gatsby-starter-grayscale-promo
 ```
-3. Install NPM packages
+* Install dependences
 ```sh
-npm install
+cd local-folder;
+yarn;
 ```
-4. Enter your API in `config.js`
-```JS
-const API_KEY = 'ENTER YOUR API';
+* Run the local copy
+```sh
+yarn start;
 ```
+
+### Deployment
+
+* Do project-wide replacement of `awesome1888` and `gatsby-starter-grayscale-promo` with your own GitHub username and repo name.
+* Setup [NetlifyCMS account](https://www.netlifycms.org/) and integrate it with your GitHub repo.
+* Commit to the repo, see the changes online in a couple of minutes!
+* To edit the content, go to the `/admin` section of your website.
 
 <!-- ROADMAP -->
 ## Roadmap
